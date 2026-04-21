@@ -118,7 +118,9 @@
 
     @media (max-width: 1024px) {
       #about { grid-template-columns: 1fr; }
-      .about-img-stack { display: none; }
+      .about-img-stack { display: block; margin-bottom: 16px; }
+      .about-img-accent { display: none; }
+      .about-badge { display: none; }
       .values-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -130,6 +132,11 @@
       .values-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 52px 5%; }
+      .page-header { padding: 100px 5% 48px; }
+      .values-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
