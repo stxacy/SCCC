@@ -1463,19 +1463,12 @@
   (function() {
     const splash = document.getElementById('splash');
     function dismiss() {
-      sessionStorage.setItem('sccc_entered', '1');
       splash.classList.add('hidden');
       document.body.style.overflow = '';
     }
-    if (sessionStorage.getItem('sccc_entered')) {
-      // Returning within session — brief loading flash, no click required
-      setTimeout(() => splash.classList.add('hidden'), 550);
-    } else {
-      // First visit — require click to enter
-      splash.addEventListener('click', dismiss);
-      splash.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') dismiss(); });
-      document.body.style.overflow = 'hidden';
-    }
+    splash.addEventListener('click', dismiss);
+    splash.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') dismiss(); });
+    document.body.style.overflow = 'hidden';
   })();
 </script>
 </body>
