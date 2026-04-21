@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honour Board | Surf Coast Cricket Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #F5F5F5;
+      --navy-mid:#EBEBEB;
+      --teal:    #C9A020;
+      --teal-lt: #E8BF2A;
+      --green:   #E8001C;
+      --gold:    #FF2233;
+      --white:   #F5F0EE;
+      --muted:   #666666;
+      --card-bg: #FFFFFF;
+      --border:  rgba(0,0,0,0.09);
+      --radius:  14px;
+      --shadow:  0 12px 40px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: #1A1A1A; overflow-x: hidden; line-height: 1.6; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* PAGE SPLASH */
+    #page-splash { position: fixed; inset: 0; z-index: 9999; background: #232323; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+    #page-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    #page-splash img { width: min(220px, 55vw); animation: pageSplashIn 0.4s ease forwards; }
+    @keyframes pageSplashIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 72px; background: transparent; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.3s; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-badge { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; }
+    .nav-logo-text { line-height: 1.2; }
+    .nav-logo-text span:first-child { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--white); }
+    .nav-logo-text span:last-child { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-lt); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(245,240,238,0.75); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--teal-lt); transition: width 0.25s; }
+    .nav-links a:hover { color: #FFFFFF; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.nav-active { color: var(--teal-lt); }
+    .nav-links a.nav-active::after { width: 100%; }
+    .nav-cta { padding: 9px 22px; background: var(--teal); color: var(--white) !important; border-radius: 8px; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .nav-mobile { display: none; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 5%; gap: 20px; z-index: 999; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-mobile a:hover { color: var(--white); }
+
+    /* PAGE HEADER */
+    .page-header { background: #1E1A1A; padding: 160px 5% 80px; position: relative; overflow: hidden; }
+    .page-header-bg { position: absolute; inset: 0; background: url('assets/images/hero-bg.jpg') center 60%/cover no-repeat; opacity: 0.08; z-index: 0; }
+    .page-header-content { position: relative; z-index: 1; max-width: 700px; }
+    .page-header-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
+    .page-header-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 8vw, 100px); line-height: 0.9; letter-spacing: 3px; color: #F5F0EE; margin-top: 12px; }
+    .page-header-title .accent { color: var(--teal-lt); }
+    .page-header-sub { font-size: 16px; color: rgba(245,240,238,0.6); margin-top: 20px; max-width: 520px; line-height: 1.75; }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; }
+    .section-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 52px); line-height: 1.15; color: #1A1A1A; }
+    .section-title em { font-style: italic; color: var(--teal-lt); }
+    .section-desc { color: var(--muted); font-size: 16px; max-width: 560px; margin-top: 16px; line-height: 1.75; }
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* KEY SECTION */
+    #key { background: var(--navy-mid); }
+    .key-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 48px; }
+    .key-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 22px; display: flex; gap: 16px; align-items: flex-start; }
+    .key-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: rgba(201,160,32,0.15); display: flex; align-items: center; justify-content: center; }
+    .key-icon svg { width: 20px; height: 20px; color: var(--teal); }
+    .key-title { font-weight: 700; font-size: 13px; color: #1A1A1A; margin-bottom: 4px; }
+    .key-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* CLUB AWARDS */
+    #club-awards { padding-bottom: 0; }
+    .club-awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+    .club-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .club-card-header { background: #1E1A1A; padding: 20px 24px; display: flex; align-items: center; gap: 12px; }
+    .club-card-header-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(201,160,32,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .club-card-header-icon svg { width: 18px; height: 18px; color: var(--teal-lt); }
+    .club-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: #F5F0EE; }
+    .club-card-body { padding: 0; }
+    .award-row { display: flex; align-items: flex-start; gap: 0; border-bottom: 1px solid var(--border); }
+    .award-row:last-child { border-bottom: none; }
+    .award-season { padding: 14px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); background: rgba(201,160,32,0.06); min-width: 72px; border-right: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; }
+    .award-winner { padding: 14px 18px; font-size: 14px; color: #1A1A1A; line-height: 1.5; flex: 1; }
+    .award-winner strong { font-weight: 600; display: block; }
+    .award-winner span { font-size: 12px; color: var(--muted); }
+    .award-not-awarded { font-size: 13px; color: #BBBBBB; font-style: italic; }
+
+    /* GRADE SECTIONS */
+    .grade-section { padding: 80px 5%; }
+    .grade-section:nth-child(even) { background: var(--navy-mid); }
+    .grade-header { display: flex; align-items: flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+    .grade-badge { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 0.9; color: rgba(201,160,32,0.15); letter-spacing: 2px; user-select: none; }
+    .grade-header-text .section-label { margin-bottom: 6px; }
+    .grade-header-text .section-title { margin-top: 0; }
+
+    .awards-table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .awards-table { width: 100%; border-collapse: collapse; background: var(--card-bg); }
+    .awards-table thead tr { background: #1E1A1A; }
+    .awards-table thead th { padding: 14px 20px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,238,0.5); white-space: nowrap; }
+    .awards-table thead th:first-child { color: var(--teal-lt); }
+    .awards-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    .awards-table tbody tr:last-child { border-bottom: none; }
+    .awards-table tbody tr:hover { background: rgba(201,160,32,0.04); }
+    .awards-table td { padding: 16px 20px; font-size: 14px; color: #1A1A1A; vertical-align: top; }
+    .awards-table td:first-child { font-weight: 600; color: #1A1A1A; font-size: 13px; white-space: nowrap; }
+    .awards-table .winner-name { font-weight: 600; display: block; }
+    .awards-table .winner-stat { font-size: 12px; color: var(--muted); display: block; margin-top: 2px; }
+    .awards-table .na { color: #CCCCCC; font-style: italic; font-size: 13px; }
+    .awards-table .season-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-right: 8px; vertical-align: middle; }
+
+    /* FOOTER */
+    footer { background: #1E1A1A; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 5% 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand-desc { color: #AAAAAA; font-size: 14px; line-height: 1.75; margin-top: 16px; max-width: 280px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; text-decoration: none; color: #AAAAAA; transition: all 0.2s; }
+    .social-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { text-decoration: none; color: #AAAAAA; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal-lt); }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: #AAAAAA; }
+
+    @media (max-width: 1024px) {
+      .club-awards-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section, .grade-section { padding: 72px 5%; }
+      .page-header { padding: 120px 5% 60px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .club-awards-grid { grid-template-columns: 1fr; }
+      .key-grid { grid-template-columns: 1fr; }
+      .grade-badge { font-size: 48px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-splash" aria-hidden="true">
+  <img src="assets/images/sccc-logo.png" alt="" />
+</div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+    <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+    <div class="nav-logo-text"><span>Surf Coast Cricket Club</span></div>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="about.html">About</a></li>
+    <li><a href="teams.html">Teams</a></li>
+    <li><a href="awards.html" class="nav-active">Awards</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="teams.html" onclick="closeMenu()">Teams</a>
+  <a href="awards.html" onclick="closeMenu()">Awards</a>
+  <a href="partners.html" onclick="closeMenu()">Partners</a>
+  <a href="contact.html" onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <span class="page-header-label">Season Recognition</span>
+    <h1 class="page-header-title">Honour<br><span class="accent">Board</span></h1>
+    <p class="page-header-sub">Celebrating standout performances across club seasons &mdash; 2023&ndash;24 onwards.</p>
+  </div>
+</div>
+
+<!-- AWARD KEY -->
+<section id="key" aria-labelledby="key-title">
+  <div class="reveal">
+    <span class="section-label">Award Definitions</span>
+    <h2 class="section-title" id="key-title">What each <em>award</em> means</h2>
+    <p class="section-desc">Each category recognises a specific aspect of performance and contribution across the season.</p>
+  </div>
+  <div class="key-grid reveal" style="transition-delay:0.1s">
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Batting Average</div>
+        <div class="key-desc">Highest average runs per innings across the season.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Batting Aggregate</div>
+        <div class="key-desc">Most total runs scored across all innings.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 6 11.5 15.5 16.5 10.5 24 18"/><polyline points="7 6 1 6 1 12"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Bowling Average</div>
+        <div class="key-desc">Lowest runs conceded per wicket taken.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Bowling Aggregate</div>
+        <div class="key-desc">Most wickets taken across the season.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Club Champion</div>
+        <div class="key-desc">Best overall performer across batting, bowling &amp; fielding.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Most Improved</div>
+        <div class="key-desc">Player showing the greatest growth during the season.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Best Clubman</div>
+        <div class="key-desc">Recognising dedication, team spirit, and off-field contribution.</div>
+      </div>
+    </div>
+    <div class="key-card">
+      <div class="key-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div>
+        <div class="key-title">Fielding Award</div>
+        <div class="key-desc">Outstanding contribution in the field across the season.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUB AWARDS -->
+<section id="club-awards" aria-labelledby="club-awards-title">
+  <div class="reveal">
+    <span class="section-label">Club-Wide</span>
+    <h2 class="section-title" id="club-awards-title">Club <em>Awards</em></h2>
+    <p class="section-desc">Recognising the best across all grades &mdash; champion performers and exemplary club members.</p>
+  </div>
+  <div class="club-awards-grid">
+
+    <div class="club-card reveal" style="transition-delay:0.05s">
+      <div class="club-card-header">
+        <div class="club-card-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="club-card-title">Club Champion</div>
+      </div>
+      <div class="club-card-body">
+        <div class="award-row">
+          <div class="award-season">23/24</div>
+          <div class="award-winner">
+            <strong>Richard Dawes</strong>
+            <span>350 runs @ 26.92 &amp; 3 wickets @ 26.67</span>
+          </div>
+        </div>
+        <div class="award-row">
+          <div class="award-season">24/25</div>
+          <div class="award-winner">
+            <strong>William Liddle</strong>
+            <span>473 runs @ 47.3 &amp; 25 wickets @ 15.88</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="club-card reveal" style="transition-delay:0.1s">
+      <div class="club-card-header">
+        <div class="club-card-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="club-card-title">Best Clubman</div>
+      </div>
+      <div class="club-card-body">
+        <div class="award-row">
+          <div class="award-season">23/24</div>
+          <div class="award-winner">
+            <strong>Tim Eden &amp; Lachlan Edwards</strong>
+            <span>Joint recipients</span>
+          </div>
+        </div>
+        <div class="award-row">
+          <div class="award-season">24/25</div>
+          <div class="award-winner">
+            <strong>Lachlan Edwards</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="club-card reveal" style="transition-delay:0.15s">
+      <div class="club-card-header">
+        <div class="club-card-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="club-card-title">Most Improved</div>
+      </div>
+      <div class="club-card-body">
+        <div class="award-row">
+          <div class="award-season">23/24</div>
+          <div class="award-winner">
+            <strong>Michael Duff</strong>
+          </div>
+        </div>
+        <div class="award-row">
+          <div class="award-season">24/25</div>
+          <div class="award-winner">
+            <strong>Rhys Healy</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- A GRADE -->
+<div class="grade-section" id="a-grade" aria-labelledby="a-grade-title">
+  <div class="grade-header reveal">
+    <div class="grade-badge" aria-hidden="true">A</div>
+    <div class="grade-header-text">
+      <span class="section-label">Senior Cricket</span>
+      <h2 class="section-title" id="a-grade-title">A Grade <em>Awards</em></h2>
+    </div>
+  </div>
+  <div class="awards-table-wrap reveal" style="transition-delay:0.1s">
+    <table class="awards-table" aria-label="A Grade Awards">
+      <thead>
+        <tr>
+          <th>Award</th>
+          <th><span class="season-dot"></span>23/24</th>
+          <th><span class="season-dot"></span>24/25</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Batting Average</td>
+          <td><span class="winner-name">Richard Dawes</span><span class="winner-stat">350 @ 26.92</span></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">473 @ 47.3</span></td>
+        </tr>
+        <tr>
+          <td>Batting Aggregate</td>
+          <td><span class="winner-name">Richard Dawes</span><span class="winner-stat">350 @ 26.92</span></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">473 @ 47.3</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Average</td>
+          <td><span class="winner-name">Corey Roberts</span><span class="winner-stat">16 wkts @ 19.06</span></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">25 wkts @ 15.88</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Aggregate</td>
+          <td><span class="winner-name">Corey Roberts &amp; Brodie Larkings</span><span class="winner-stat">16 wkts @ 19.06 &amp; 16 wkts @ 22.12</span></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">25 wkts @ 15.88</span></td>
+        </tr>
+        <tr>
+          <td>All-Rounder</td>
+          <td><span class="winner-name">Daniel Zoch</span><span class="winner-stat">207 runs @ 23 &amp; 9 wkts @ 30.67</span></td>
+          <td><span class="na">Not awarded</span></td>
+        </tr>
+        <tr>
+          <td>Fielding</td>
+          <td><span class="na">&mdash;</span></td>
+          <td><span class="winner-name">Ben Tekin</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- C GRADE -->
+<div class="grade-section" id="c-grade" aria-labelledby="c-grade-title">
+  <div class="grade-header reveal">
+    <div class="grade-badge" aria-hidden="true">C</div>
+    <div class="grade-header-text">
+      <span class="section-label">Senior Cricket</span>
+      <h2 class="section-title" id="c-grade-title">C Grade <em>Awards</em></h2>
+    </div>
+  </div>
+  <div class="awards-table-wrap reveal" style="transition-delay:0.1s">
+    <table class="awards-table" aria-label="C Grade Awards">
+      <thead>
+        <tr>
+          <th>Award</th>
+          <th><span class="season-dot"></span>24/25</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Batting Average</td>
+          <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">682 @ 62</span></td>
+        </tr>
+        <tr>
+          <td>Batting Aggregate</td>
+          <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">682 @ 62</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Average</td>
+          <td><span class="winner-name">Mandeep Singh</span><span class="winner-stat">16 wkts @ 8.69</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Aggregate</td>
+          <td><span class="winner-name">Mathews Pularkalayil Mathew</span><span class="winner-stat">17 wkts @ 15.65</span></td>
+        </tr>
+        <tr>
+          <td>Fielding</td>
+          <td><span class="winner-name">Sukhbir Chahal</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- D GRADE -->
+<div class="grade-section" id="d-grade" aria-labelledby="d-grade-title">
+  <div class="grade-header reveal">
+    <div class="grade-badge" aria-hidden="true">D</div>
+    <div class="grade-header-text">
+      <span class="section-label">Senior Cricket</span>
+      <h2 class="section-title" id="d-grade-title">D Grade <em>Awards</em></h2>
+    </div>
+  </div>
+  <div class="awards-table-wrap reveal" style="transition-delay:0.1s">
+    <table class="awards-table" aria-label="D Grade Awards">
+      <thead>
+        <tr>
+          <th>Award</th>
+          <th><span class="season-dot"></span>23/24</th>
+          <th><span class="season-dot"></span>24/25</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Batting Average</td>
+          <td><span class="winner-name">Michael Duff</span><span class="winner-stat">337 @ 25.92</span></td>
+          <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">261 @ 18.64</span></td>
+        </tr>
+        <tr>
+          <td>Batting Aggregate</td>
+          <td><span class="winner-name">Michael Duff</span><span class="winner-stat">337 @ 25.92</span></td>
+          <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">261 @ 18.64</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Average</td>
+          <td><span class="winner-name">Jayson Green</span><span class="winner-stat">14 wkts @ 19.21</span></td>
+          <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">10 wkts @ 22.90</span></td>
+        </tr>
+        <tr>
+          <td>Bowling Aggregate</td>
+          <td><span class="winner-name">Jayson Green</span><span class="winner-stat">14 wkts @ 19.21</span></td>
+          <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">10 wkts @ 22.90</span></td>
+        </tr>
+        <tr>
+          <td>Fielding</td>
+          <td><span class="na">&mdash;</span></td>
+          <td><span class="winner-name">Shane Gambin</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="nav-logo" style="display:inline-flex; margin-bottom: 4px;">
+        <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" style="width:48px;height:48px;" />
+        <div class="nav-logo-text"><span>Surf Coast Cricket Club</span></div>
+      </a>
+      <p class="footer-brand-desc">A newly established, community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="https://www.facebook.com/surfcoastsunscc/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About the Club</a></li>
+        <li><a href="teams.html">Our Teams</a></li>
+        <li><a href="awards.html">Honour Board</a></li>
+        <li><a href="partners.html">Partners</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Resources</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">PlayHQ Registration</a></li>
+        <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">GCA Fixtures</a></li>
+        <li><a href="https://www.facebook.com/surfcoastsunscc/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228.</p>
+    <p class="footer-copy" style="color:var(--teal-lt);">Made by Vik Rathore on the Surf Coast</p>
+  </div>
+</footer>
+
+<script>
+  /* PAGE SPLASH */
+  (function() {
+    const ps = document.getElementById('page-splash');
+    setTimeout(() => ps.classList.add('hidden'), 550);
+  })();
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  let menuOpen = false;
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    hamburger.setAttribute('aria-expanded', String(menuOpen));
+    const spans = hamburger.querySelectorAll('span');
+    if (menuOpen) { spans[0].style.transform = 'rotate(45deg) translate(5px,5px)'; spans[1].style.opacity = '0'; spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)'; }
+    else { spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+  });
+  function closeMenu() { menuOpen = false; mobileNav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); hamburger.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity=''; }); }
+  const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>
