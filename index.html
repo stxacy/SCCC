@@ -72,10 +72,10 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
       padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top));
-      background: rgba(30,26,26,0.7);
+      background: transparent;
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 1s ease;
     }
     nav.scrolled { background: rgba(30,26,26,0.97); }
 
@@ -1336,7 +1336,7 @@
   // Navbar scroll effect
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
   // Mobile hamburger menu
