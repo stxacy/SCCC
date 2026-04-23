@@ -536,6 +536,47 @@
 
     .sponsor-divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 8px 0 32px; }
 
+    /* ── PARTNER REEL ── */
+    .reel-outer {
+      overflow: hidden;
+      margin: 48px -5% 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+    .reel-track {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: max-content;
+      animation: reel-scroll 36s linear infinite;
+      padding: 16px 0;
+    }
+    .reel-track:hover { animation-play-state: paused; }
+    @keyframes reel-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .reel-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 184px;
+      height: 101px;
+      padding: 6px 8px;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(0,0,0,0.09);
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+    }
+    .reel-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .reel-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .reel-card.dark { background: #1E1E1E; border-color: rgba(255,255,255,0.1); }
+    .reel-name { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1.5px; color: #1A1A1A; text-align: center; line-height: 1.3; }
+
     /* ── CONTACT ── */
     #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-items { margin-top: 36px; display: flex; flex-direction: column; gap: 24px; }
@@ -1120,111 +1161,120 @@
 </section>
 
 <!-- PARTNERS -->
-<section id="partners" aria-labelledby="partners-title">
-  <div class="sponsors-head reveal">
+<section id="partners" aria-labelledby="partners-title" style="overflow:hidden;">
+  <div class="sponsors-head reveal" style="text-align:center;">
     <span class="section-label">Proudly Supported By</span>
-    <h2 class="section-title" id="partners-title">Our <em>Partners</em></h2>
+    <h2 class="section-title" id="partners-title" style="margin:0 auto;">Our <em>Partners</em></h2>
     <p class="section-desc" style="margin:16px auto 0;">
-      We&rsquo;re proud to partner with outstanding local businesses who make Surf Coast Cricket Club possible. Interested in joining? <a href="/contact" style="color:var(--gold);text-decoration:underline;">Get in touch.</a>
+      Outstanding local businesses who make Surf Coast Cricket Club possible. <a href="/partners" style="color:var(--gold);text-decoration:underline;">View all partners &rarr;</a>
     </p>
   </div>
 
-  <!-- MAJOR NAMING RIGHTS -->
-  <div class="sponsor-tier tier-naming reveal">
-    <div><span class="sponsor-tier-label">&#9733; Major Naming Rights Partners</span></div>
-    <div class="sponsors-row">
-      <a class="sponsor-card dark-card" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener">
+  <!-- REEL -->
+  <div class="reel-outer">
+    <div class="reel-track" id="reelTrack">
+      <!-- SET 1 -->
+      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company">
         <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="4 Pines Brewing Company" />
       </a>
-      <a class="sponsor-card dark-card" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener">
-        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch Fish &amp; Chips" />
+      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" aria-label="Captain's Catch Fish & Chips">
+        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch" />
       </a>
-    </div>
-  </div>
-
-  <hr class="sponsor-divider reveal">
-
-  <!-- ULTIMATE PARTNERS -->
-  <div class="sponsor-tier tier-platinum reveal">
-    <div><span class="sponsor-tier-label">Ultimate Partners</span></div>
-    <div class="sponsors-row">
-      <a class="sponsor-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener">
-        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold Property" />
+      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" aria-label="Eliza Gold Property">
+        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold" />
       </a>
-      <a class="sponsor-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener">
+      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" aria-label="Taylor Legal">
         <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
       </a>
-      <a class="sponsor-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener">
-        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group — Mulcahy &amp; Co" />
+      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" aria-label="M Group Mulcahy & Co">
+        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group" />
       </a>
-    </div>
-  </div>
-
-  <hr class="sponsor-divider reveal">
-
-  <!-- GOLD PARTNERS -->
-  <div class="sponsor-tier tier-gold reveal">
-    <div><span class="sponsor-tier-label">Gold Partners</span></div>
-    <div class="sponsors-row">
-      <a class="sponsor-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener">
+      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" aria-label="Mikro Coffee Roasters">
         <img src="/assets/images/partners/mikro-coffee.png" alt="Mikro Coffee Roasters" />
       </a>
-      <a class="sponsor-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener">
-        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company Torquay" />
+      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" aria-label="The Running Company Torquay">
+        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company" />
       </a>
-      <a class="sponsor-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener">
-        <span class="sc-name">The Kiosk<br>Torquay</span>
+      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" aria-label="The Kiosk Torquay">
+        <span class="reel-name">The Kiosk<br>Torquay</span>
       </a>
-      <a class="sponsor-card" href="#" target="_blank" rel="noopener">
+      <a class="reel-card" href="#" target="_blank" rel="noopener" aria-label="Indigo Wolf">
         <img src="/assets/images/partners/indigo-wolf.png" alt="Indigo Wolf" />
       </a>
-      <a class="sponsor-card" href="#" target="_blank" rel="noopener">
-        <span class="sc-name">Miss Mia&rsquo;s</span>
+      <a class="reel-card" href="#" aria-label="Miss Mia's">
+        <span class="reel-name">Miss Mia&rsquo;s</span>
       </a>
-    </div>
-  </div>
-
-  <hr class="sponsor-divider reveal">
-
-  <!-- SILVER PARTNERS -->
-  <div class="sponsor-tier tier-silver reveal">
-    <div><span class="sponsor-tier-label">Silver Partners</span></div>
-    <div class="sponsors-row">
-      <a class="sponsor-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener">
+      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" aria-label="Surf Coast Times">
         <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
-        <span class="sc-name" style="font-size:11px;margin-top:4px;">Surf Coast Times</span>
       </a>
-      <a class="sponsor-card" href="#" target="_blank" rel="noopener">
+      <a class="reel-card" href="#" aria-label="Blitz Nutrition">
         <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
       </a>
-      <a class="sponsor-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener">
-        <img src="/assets/images/partners/dbm-signs.png" alt="DBM Signs" />
+      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" aria-label="DBM Signs">
+        <span class="reel-name">DBM Signs</span>
       </a>
-      <a class="sponsor-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener">
+      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" aria-label="Subway Waurn Ponds">
         <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
       </a>
-    </div>
-  </div>
-
-  <hr class="sponsor-divider reveal">
-
-  <!-- BRONZE PARTNERS -->
-  <div class="sponsor-tier tier-bronze reveal">
-    <div><span class="sponsor-tier-label">Bronze Partners</span></div>
-    <div class="sponsors-row">
-      <a class="sponsor-card" href="#" target="_blank" rel="noopener">
+      <a class="reel-card" href="#" aria-label="General Public">
         <img src="/assets/images/partners/general-public.png" alt="General Public" />
       </a>
-      <a class="sponsor-card" href="#" target="_blank" rel="noopener">
+      <a class="reel-card" href="#" aria-label="Surfcoast Car Detailing">
         <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="Surfcoast Car Detailing" />
+      </a>
+      <!-- SET 2 (duplicate for seamless loop) -->
+      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company" tabindex="-1">
+        <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="" />
+      </a>
+      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/captains-catch.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/taylor-legal.webp" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/mikro-coffee.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" tabindex="-1">
+        <span class="reel-name">The Kiosk<br>Torquay</span>
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/indigo-wolf.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <span class="reel-name">Miss Mia&rsquo;s</span>
+      </a>
+      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/blitz-nutrition.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <span class="reel-name">DBM Signs</span>
+      </a>
+      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/subway.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/general-public.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="" />
       </a>
     </div>
   </div>
 
-  <hr class="sponsor-divider reveal">
-
-  <!-- BECOME A SPONSOR -->
-  <div class="reveal" style="text-align:center; padding: 12px 0 8px;">
+  <div class="reveal" style="text-align:center; padding: 12px 0 8px; margin-top: 40px;">
     <p style="font-size:15px; color:var(--muted); margin-bottom:20px; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.65;">
       Interested in partnering with the Surf Coast Cricket Club? We&rsquo;d love to hear from you.
     </p>
