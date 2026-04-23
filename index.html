@@ -1463,9 +1463,14 @@
   /* ── SPLASH ── */
   (function() {
     const splash = document.getElementById('splash');
+    if (sessionStorage.getItem('splashSeen')) {
+      splash.classList.add('hidden');
+      return;
+    }
     function dismiss() {
       splash.classList.add('hidden');
       document.body.style.overflow = '';
+      sessionStorage.setItem('splashSeen', '1');
     }
     splash.addEventListener('click', dismiss);
     splash.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') dismiss(); });
