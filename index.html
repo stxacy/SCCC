@@ -539,9 +539,9 @@
     /* ── PARTNER REEL ── */
     .reel-outer {
       overflow: hidden;
-      margin: 48px -5% 0;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      margin: 48px -5vw 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
     }
     .reel-track {
       display: flex;
@@ -549,7 +549,7 @@
       gap: 16px;
       width: max-content;
       animation: reel-scroll 36s linear infinite;
-      padding: 16px 0;
+      padding: 16px 5vw;
     }
     .reel-track:hover { animation-play-state: paused; }
     @keyframes reel-scroll {
@@ -576,6 +576,10 @@
     .reel-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .reel-card.dark { background: #1E1E1E; border-color: rgba(255,255,255,0.1); }
     .reel-name { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1.5px; color: #1A1A1A; text-align: center; line-height: 1.3; }
+    @media (max-width: 480px) {
+      .reel-card { width: 144px; height: 80px; }
+      .reel-track { gap: 12px; }
+    }
 
     /* ── CONTACT ── */
     #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -774,14 +778,14 @@
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastsuns.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-item"><div class="dot"></div>Welcome to Surf Coast Cricket Club &mdash; North Torquay&rsquo;s home of cricket</div>
     <div class="ticker-item"><div class="dot"></div>Now competing in the GCA</div>
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastsuns.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
   </div>
 </div>
 
@@ -808,6 +812,228 @@
     </p>
   </div>
 </section>
+
+<!-- PARTNERS -->
+<section id="partners" aria-labelledby="partners-title" style="overflow:hidden;">
+  <div class="sponsors-head reveal" style="text-align:center;">
+    <span class="section-label">Proudly Supported By</span>
+    <h2 class="section-title" id="partners-title" style="margin:0 auto;">Our <em>Partners</em></h2>
+    <p class="section-desc" style="margin:16px auto 0;">
+      Outstanding local businesses who make Surf Coast Cricket Club possible. <a href="/partners" style="color:var(--gold);text-decoration:underline;">View all partners &rarr;</a>
+    </p>
+  </div>
+
+  <!-- REEL -->
+  <div class="reel-outer">
+    <div class="reel-track" id="reelTrack">
+      <!-- SET 1 -->
+      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company">
+        <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="4 Pines Brewing Company" />
+      </a>
+      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" aria-label="Captain's Catch Fish & Chips">
+        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch" />
+      </a>
+      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" aria-label="Eliza Gold Property">
+        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold" />
+      </a>
+      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" aria-label="Taylor Legal">
+        <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
+      </a>
+      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" aria-label="M Group Mulcahy & Co">
+        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group" />
+      </a>
+      <a class="reel-card" href="https://www.gracecartledgefinance.com.au/" target="_blank" rel="noopener" aria-label="Grace Cartledge Finance">
+        <img src="/assets/images/partners/grace-cartledge-finance.webp" alt="Grace Cartledge Finance" />
+      </a>
+      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" aria-label="Mikro Coffee Roasters">
+        <img src="/assets/images/partners/mikro-coffee.png" alt="Mikro Coffee Roasters" />
+      </a>
+      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" aria-label="The Running Company Torquay">
+        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company" />
+      </a>
+      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" aria-label="The Kiosk Torquay">
+        <span class="reel-name">The Kiosk<br>Torquay</span>
+      </a>
+      <a class="reel-card" href="#" target="_blank" rel="noopener" aria-label="Indigo Wolf">
+        <img src="/assets/images/partners/indigo-wolf.png" alt="Indigo Wolf" />
+      </a>
+      <a class="reel-card" href="#" aria-label="Miss Mia's">
+        <span class="reel-name">Miss Mia&rsquo;s</span>
+      </a>
+      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" aria-label="Surf Coast Times">
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
+      </a>
+      <a class="reel-card" href="#" aria-label="Blitz Nutrition">
+        <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
+      </a>
+      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" aria-label="DBM Signs">
+        <span class="reel-name">DBM Signs</span>
+      </a>
+      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" aria-label="Subway Waurn Ponds">
+        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
+      </a>
+      <a class="reel-card" href="#" aria-label="General Public">
+        <img src="/assets/images/partners/general-public.png" alt="General Public" />
+      </a>
+      <a class="reel-card" href="#" aria-label="Surfcoast Car Detailing">
+        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="Surfcoast Car Detailing" />
+      </a>
+      <!-- SET 2 (duplicate for seamless loop) -->
+      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company" tabindex="-1">
+        <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="" />
+      </a>
+      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/captains-catch.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/taylor-legal.webp" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.gracecartledgefinance.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/grace-cartledge-finance.webp" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/mikro-coffee.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" tabindex="-1">
+        <span class="reel-name">The Kiosk<br>Torquay</span>
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/indigo-wolf.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <span class="reel-name">Miss Mia&rsquo;s</span>
+      </a>
+      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/blitz-nutrition.png" alt="" />
+      </a>
+      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" tabindex="-1">
+        <span class="reel-name">DBM Signs</span>
+      </a>
+      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/subway.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/general-public.png" alt="" />
+      </a>
+      <a class="reel-card" href="#" tabindex="-1">
+        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="" />
+      </a>
+    </div>
+  </div>
+
+  <div class="reveal" style="text-align:center; padding: 12px 0 8px; margin-top: 40px;">
+    <p style="font-size:15px; color:var(--muted); margin-bottom:20px; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.65;">
+      Interested in partnering with the Surf Coast Cricket Club? We&rsquo;d love to hear from you.
+    </p>
+    <a href="/contact" class="btn-primary" style="display:inline-block;">Become a Partner</a>
+  </div>
+</section>
+
+
+<!-- INSTAGRAM -->
+<section id="instagram" aria-labelledby="instagram-title">
+  <div class="instagram-head reveal">
+    <span class="section-label">Follow Along</span>
+    <h2 class="section-title" id="instagram-title">Latest from <em>Instagram</em></h2>
+    <a class="instagram-handle" href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @surfcoastcricketclub
+    </a>
+  </div>
+
+  <!--
+    ══════════════════════════════════════════════════════════
+    LIVE INSTAGRAM FEED — Setup (one-time, takes ~3 minutes):
+    1. Go to https://behold.so and sign up (free)
+    2. Click "New Feed" → connect @surfcoastcricketclub Instagram
+    3. Set layout: Grid | Posts: 6 | Columns: 3
+    4. Click Publish → Copy the embed code
+    5. Paste your <div id="behold-widget-XXXXX"> here (replace the placeholder below)
+    Auto-refreshes every time you post — no code changes needed.
+    ══════════════════════════════════════════════════════════
+  -->
+  <div class="behold-feed-wrap reveal" style="transition-delay:0.1s">
+    <div id="ig-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto;"></div>
+    <div id="ig-loading" style="display:flex;align-items:center;justify-content:center;min-height:280px;color:var(--muted);font-size:14px;letter-spacing:1px;">Loading posts&hellip;</div>
+  </div>
+
+  <script>
+  (function(){
+    const FEED_ID = 'LxGk6Ua3TXbsf0rjMpEB';
+    const GRID    = document.getElementById('ig-grid');
+    const LOADER  = document.getElementById('ig-loading');
+
+    function timeAgo(ts){
+      const s = Math.floor((Date.now() - new Date(ts))/1000);
+      if(s < 60) return 'just now';
+      const m = Math.floor(s/60); if(m < 60) return m+'m ago';
+      const h = Math.floor(m/60); if(h < 24) return h+'h ago';
+      const d = Math.floor(h/24); return d+'d ago';
+    }
+
+    function typeIcon(post){
+      if(post.isReel || post.mediaType==='VIDEO')
+        return '<span style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.55);border-radius:6px;padding:3px 7px;font-size:11px;color:#fff;font-weight:700;letter-spacing:1px;">▶ REEL</span>';
+      if(post.mediaType==='CAROUSEL_ALBUM')
+        return '<span style="position:absolute;top:10px;right:10px;font-size:18px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.7));">⧉</span>';
+      return '';
+    }
+
+    function render(posts){
+      LOADER.style.display = 'none';
+      GRID.innerHTML = posts.slice(0,6).map(p => {
+        const img  = p.sizes?.medium?.mediaUrl || p.mediaUrl;
+        const cap  = (p.prunedCaption||p.caption||'').replace(/</g,'&lt;').substring(0,100);
+        const ago  = timeAgo(p.timestamp);
+        return `
+        <a href="${p.permalink}" target="_blank" rel="noopener"
+           style="display:block;position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:12px;background:var(--navy-mid);">
+          <img src="${img}" alt="Instagram post"
+               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;"
+               onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+               loading="lazy" />
+          ${typeIcon(p)}
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 55%);
+                      opacity:0;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;"
+               onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+            <p style="color:#fff;font-size:12px;line-height:1.5;margin:0 0 6px;">${cap}${cap.length>=100?'…':''}</p>
+            <span style="color:var(--muted);font-size:11px;">${ago}</span>
+          </div>
+        </a>`;
+      }).join('');
+    }
+
+    function load(){
+      fetch('https://feeds.behold.so/' + FEED_ID)
+        .then(r => r.json())
+        .then(data => render(Array.isArray(data) ? data : data.posts || []))
+        .catch(() => {
+          LOADER.innerHTML = '<a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">View @surfcoastcricketclub on Instagram &rarr;</a>';
+        });
+    }
+
+    load();
+    setInterval(load, 30 * 60 * 1000); // refresh every 30 minutes
+  })();
+  </script>
+
+  <div class="instagram-cta-row reveal" style="transition-delay:0.2s">
+    <a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" class="btn-primary">Follow @surfcoastcricketclub</a>
+  </div>
+</section>
+
 
 <!-- TEAMS -->
 <section id="teams" aria-labelledby="teams-title">
@@ -1067,221 +1293,6 @@
   </script>
 </section>
 
-<!-- GALLERY -->
-<!-- INSTAGRAM -->
-<section id="instagram" aria-labelledby="instagram-title">
-  <div class="instagram-head reveal">
-    <span class="section-label">Follow Along</span>
-    <h2 class="section-title" id="instagram-title">Latest from <em>Instagram</em></h2>
-    <a class="instagram-handle" href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      @surfcoastsunscc
-    </a>
-  </div>
-
-  <!--
-    ══════════════════════════════════════════════════════════
-    LIVE INSTAGRAM FEED — Setup (one-time, takes ~3 minutes):
-    1. Go to https://behold.so and sign up (free)
-    2. Click "New Feed" → connect @surfcoastsunscc Instagram
-    3. Set layout: Grid | Posts: 6 | Columns: 3
-    4. Click Publish → Copy the embed code
-    5. Paste your <div id="behold-widget-XXXXX"> here (replace the placeholder below)
-    Auto-refreshes every time you post — no code changes needed.
-    ══════════════════════════════════════════════════════════
-  -->
-  <div class="behold-feed-wrap reveal" style="transition-delay:0.1s">
-    <div id="ig-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto;"></div>
-    <div id="ig-loading" style="display:flex;align-items:center;justify-content:center;min-height:280px;color:var(--muted);font-size:14px;letter-spacing:1px;">Loading posts&hellip;</div>
-  </div>
-
-  <script>
-  (function(){
-    const FEED_ID = 'LxGk6Ua3TXbsf0rjMpEB';
-    const GRID    = document.getElementById('ig-grid');
-    const LOADER  = document.getElementById('ig-loading');
-
-    function timeAgo(ts){
-      const s = Math.floor((Date.now() - new Date(ts))/1000);
-      if(s < 60) return 'just now';
-      const m = Math.floor(s/60); if(m < 60) return m+'m ago';
-      const h = Math.floor(m/60); if(h < 24) return h+'h ago';
-      const d = Math.floor(h/24); return d+'d ago';
-    }
-
-    function typeIcon(post){
-      if(post.isReel || post.mediaType==='VIDEO')
-        return '<span style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.55);border-radius:6px;padding:3px 7px;font-size:11px;color:#fff;font-weight:700;letter-spacing:1px;">▶ REEL</span>';
-      if(post.mediaType==='CAROUSEL_ALBUM')
-        return '<span style="position:absolute;top:10px;right:10px;font-size:18px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.7));">⧉</span>';
-      return '';
-    }
-
-    function render(posts){
-      LOADER.style.display = 'none';
-      GRID.innerHTML = posts.slice(0,6).map(p => {
-        const img  = p.sizes?.medium?.mediaUrl || p.mediaUrl;
-        const cap  = (p.prunedCaption||p.caption||'').replace(/</g,'&lt;').substring(0,100);
-        const ago  = timeAgo(p.timestamp);
-        return `
-        <a href="${p.permalink}" target="_blank" rel="noopener"
-           style="display:block;position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:12px;background:var(--navy-mid);">
-          <img src="${img}" alt="Instagram post"
-               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;"
-               onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
-               loading="lazy" />
-          ${typeIcon(p)}
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 55%);
-                      opacity:0;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;"
-               onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
-            <p style="color:#fff;font-size:12px;line-height:1.5;margin:0 0 6px;">${cap}${cap.length>=100?'…':''}</p>
-            <span style="color:var(--muted);font-size:11px;">${ago}</span>
-          </div>
-        </a>`;
-      }).join('');
-    }
-
-    function load(){
-      fetch('https://feeds.behold.so/' + FEED_ID)
-        .then(r => r.json())
-        .then(data => render(Array.isArray(data) ? data : data.posts || []))
-        .catch(() => {
-          LOADER.innerHTML = '<a href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">View @surfcoastsunscc on Instagram &rarr;</a>';
-        });
-    }
-
-    load();
-    setInterval(load, 30 * 60 * 1000); // refresh every 30 minutes
-  })();
-  </script>
-
-  <div class="instagram-cta-row reveal" style="transition-delay:0.2s">
-    <a href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener" class="btn-primary">Follow @surfcoastsunscc</a>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section id="partners" aria-labelledby="partners-title" style="overflow:hidden;">
-  <div class="sponsors-head reveal" style="text-align:center;">
-    <span class="section-label">Proudly Supported By</span>
-    <h2 class="section-title" id="partners-title" style="margin:0 auto;">Our <em>Partners</em></h2>
-    <p class="section-desc" style="margin:16px auto 0;">
-      Outstanding local businesses who make Surf Coast Cricket Club possible. <a href="/partners" style="color:var(--gold);text-decoration:underline;">View all partners &rarr;</a>
-    </p>
-  </div>
-
-  <!-- REEL -->
-  <div class="reel-outer">
-    <div class="reel-track" id="reelTrack">
-      <!-- SET 1 -->
-      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company">
-        <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="4 Pines Brewing Company" />
-      </a>
-      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" aria-label="Captain's Catch Fish & Chips">
-        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch" />
-      </a>
-      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" aria-label="Eliza Gold Property">
-        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold" />
-      </a>
-      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" aria-label="Taylor Legal">
-        <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
-      </a>
-      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" aria-label="M Group Mulcahy & Co">
-        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group" />
-      </a>
-      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" aria-label="Mikro Coffee Roasters">
-        <img src="/assets/images/partners/mikro-coffee.png" alt="Mikro Coffee Roasters" />
-      </a>
-      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" aria-label="The Running Company Torquay">
-        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company" />
-      </a>
-      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" aria-label="The Kiosk Torquay">
-        <span class="reel-name">The Kiosk<br>Torquay</span>
-      </a>
-      <a class="reel-card" href="#" target="_blank" rel="noopener" aria-label="Indigo Wolf">
-        <img src="/assets/images/partners/indigo-wolf.png" alt="Indigo Wolf" />
-      </a>
-      <a class="reel-card" href="#" aria-label="Miss Mia's">
-        <span class="reel-name">Miss Mia&rsquo;s</span>
-      </a>
-      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" aria-label="Surf Coast Times">
-        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
-      </a>
-      <a class="reel-card" href="#" aria-label="Blitz Nutrition">
-        <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
-      </a>
-      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" aria-label="DBM Signs">
-        <span class="reel-name">DBM Signs</span>
-      </a>
-      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" aria-label="Subway Waurn Ponds">
-        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
-      </a>
-      <a class="reel-card" href="#" aria-label="General Public">
-        <img src="/assets/images/partners/general-public.png" alt="General Public" />
-      </a>
-      <a class="reel-card" href="#" aria-label="Surfcoast Car Detailing">
-        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="Surfcoast Car Detailing" />
-      </a>
-      <!-- SET 2 (duplicate for seamless loop) -->
-      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company" tabindex="-1">
-        <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="" />
-      </a>
-      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/captains-catch.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/taylor-legal.webp" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/mikro-coffee.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" tabindex="-1">
-        <span class="reel-name">The Kiosk<br>Torquay</span>
-      </a>
-      <a class="reel-card" href="#" tabindex="-1">
-        <img src="/assets/images/partners/indigo-wolf.png" alt="" />
-      </a>
-      <a class="reel-card" href="#" tabindex="-1">
-        <span class="reel-name">Miss Mia&rsquo;s</span>
-      </a>
-      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" />
-      </a>
-      <a class="reel-card" href="#" tabindex="-1">
-        <img src="/assets/images/partners/blitz-nutrition.png" alt="" />
-      </a>
-      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <span class="reel-name">DBM Signs</span>
-      </a>
-      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/subway.png" alt="" />
-      </a>
-      <a class="reel-card" href="#" tabindex="-1">
-        <img src="/assets/images/partners/general-public.png" alt="" />
-      </a>
-      <a class="reel-card" href="#" tabindex="-1">
-        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="" />
-      </a>
-    </div>
-  </div>
-
-  <div class="reveal" style="text-align:center; padding: 12px 0 8px; margin-top: 40px;">
-    <p style="font-size:15px; color:var(--muted); margin-bottom:20px; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.65;">
-      Interested in partnering with the Surf Coast Cricket Club? We&rsquo;d love to hear from you.
-    </p>
-    <a href="/contact" class="btn-primary" style="display:inline-block;">Become a Partner</a>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact" aria-labelledby="contact-title">
   <div class="contact-info reveal">
@@ -1299,7 +1310,7 @@
       <div class="contact-item" role="listitem">
         <div>
           <div class="contact-label">Email (President &mdash; Ben Tekin)</div>
-          <div class="contact-val">president@surfcoastsuns.com</div>
+          <div class="contact-val">president@surfcoastcricketclub.com</div>
         </div>
       </div>
       <div class="contact-item" role="listitem">
@@ -1355,10 +1366,10 @@
         A newly established, community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA. We acknowledge the Wadawurrung People as the Traditional Custodians of this land.
       </p>
       <div class="footer-socials" role="list" aria-label="Social media">
-        <a class="social-btn" href="https://www.facebook.com/surfcoastsunscc/" target="_blank" rel="noopener" role="listitem" aria-label="Facebook">
+        <a class="social-btn" href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
-        <a class="social-btn" href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener" role="listitem" aria-label="Instagram">
+        <a class="social-btn" href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
         <a class="social-btn" href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener" role="listitem" aria-label="YouTube">
@@ -1384,8 +1395,8 @@
       <ul class="footer-links">
         <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">PlayHQ Registration</a></li>
         <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">GCA Fixtures</a></li>
-        <li><a href="https://www.facebook.com/surfcoastsunscc/" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.instagram.com/surfcoastsunscc/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener">YouTube (Live Streams)</a></li>
       </ul>
     </div>
@@ -1477,7 +1488,7 @@
     btn.disabled = true;
 
     const data = new FormData(form);
-    fetch('https://formsubmit.co/ajax/surfcoastsunscc@gmail.com', {
+    fetch('https://formsubmit.co/ajax/info@surfcoastcricketclub.com', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: data
