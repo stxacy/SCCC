@@ -700,7 +700,7 @@
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <a href="#" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+  <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
     <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
     <div class="nav-logo-text">
       <span>Surf Coast Cricket Club</span>
@@ -1358,7 +1358,7 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <a href="#" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+      <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
         <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
         <div class="nav-logo-text" style="margin-left:12px;">
           <span>Surf Coast Cricket Club</span>
@@ -1537,6 +1537,13 @@
         .catch(() => {});
     });
   })();
+
+  /* ── NAV LOGO — clear splash seen so it replays on home navigation ── */
+  document.querySelectorAll('a.nav-logo').forEach(function(el) {
+    el.addEventListener('click', function() {
+      sessionStorage.removeItem('splashSeen');
+    });
+  });
 
   /* ── SPLASH ── */
   (function() {
