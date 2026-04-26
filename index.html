@@ -48,6 +48,7 @@
       justify-content: center;
       cursor: pointer;
       transition: opacity 0.7s ease, visibility 0.7s ease;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
     #splash.hidden {
       opacity: 0;
@@ -136,7 +137,8 @@
       display: none; flex-direction: column;
       position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0;
       background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 24px 5%; gap: 20px; z-index: 999;
+      padding: 24px calc(5% + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(5% + env(safe-area-inset-left));
+      gap: 20px; z-index: 999;
     }
     .nav-mobile.open { display: flex; }
     .nav-mobile a {
@@ -688,6 +690,23 @@
       .sponsor-pill { font-size: 12px; padding: 0 14px; height: 42px; }
       .tier-platinum .sponsor-pill { height: 52px; font-size: 15px; }
       .sponsors-row { gap: 8px; }
+    }
+    @media (orientation: landscape) and (max-width: 1024px) {
+      nav {
+        padding-left: calc(5% + env(safe-area-inset-left));
+        padding-right: calc(5% + env(safe-area-inset-right));
+      }
+      section {
+        padding-left: calc(5% + env(safe-area-inset-left));
+        padding-right: calc(5% + env(safe-area-inset-right));
+      }
+      .ticker-wrap {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+      .hero-content {
+        padding-left: calc(5% + env(safe-area-inset-left));
+      }
     }
   </style>
 </head>
