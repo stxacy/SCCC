@@ -76,9 +76,12 @@
       background: transparent;
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      transition: background 1s ease;
+      transition: background 1s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1);
     }
     nav.scrolled { background: rgba(30,26,26,0.97); }
+    @media (max-width: 1024px) {
+      nav.nav-hidden { transform: translateY(-110%); }
+    }
 
     .nav-logo {
       display: flex; align-items: center; gap: 12px; text-decoration: none;
@@ -1430,10 +1433,21 @@
 </footer>
 
 <script>
-  // Navbar scroll effect
+  // Navbar scroll effect — hide on scroll down, reveal on scroll up
   const navbar = document.getElementById('navbar');
+  let lastScrollY = window.scrollY;
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 60);
+    if (y <= 60) {
+      navbar.classList.remove('nav-hidden');
+    } else if (y > lastScrollY + 4) {
+      navbar.classList.add('nav-hidden');
+      closeMenu();
+    } else if (y < lastScrollY - 4) {
+      navbar.classList.remove('nav-hidden');
+    }
+    lastScrollY = y;
   }, { passive: true });
 
   // Mobile hamburger menu
