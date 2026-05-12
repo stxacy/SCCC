@@ -1,0 +1,21 @@
+{
+  "name": "Surf Coast Cricket Club",
+  "short_name": "SCCC",
+  "description": "Community cricket at Banyul-Warri Fields, North Torquay.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#232323",
+  "theme_color": "#C9A020",
+  "icons": [
+    {
+      "src": "assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

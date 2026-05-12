@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#232323" />
+  <meta name="description" content="Surf Coast Cricket Club — a community-minded and inclusive cricket club based at Banyul-Warri Fields, North Torquay. Competing in the GCA with senior men's sides and junior programs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://surfcoastcricketclub.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://surfcoastcricketclub.com/" />
+  <meta property="og:title" content="Surf Coast Cricket Club | North Torquay" />
+  <meta property="og:description" content="A community-minded and inclusive cricket club in North Torquay, competing in the GCA. Senior men's teams, junior programs, and a welcoming community." />
+  <meta property="og:image" content="https://surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
+  <meta property="og:site_name" content="Surf Coast Cricket Club" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Surf Coast Cricket Club | North Torquay" />
+  <meta name="twitter:description" content="A community-minded and inclusive cricket club in North Torquay, competing in the GCA." />
+  <meta name="twitter:image" content="https://surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+  <link rel="manifest" href="manifest.json" />
   <title>Surf Coast Cricket Club | North Torquay</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -713,6 +728,37 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Surf Coast Cricket Club",
+    "alternateName": "SCCC",
+    "url": "https://surfcoastcricketclub.com",
+    "logo": "https://surfcoastcricketclub.com/assets/images/sccc-logo.png",
+    "image": "https://surfcoastcricketclub.com/assets/images/hero-bg.jpg",
+    "description": "A community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA.",
+    "sport": "Cricket",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Banyul-Warri Fields Sporting Precinct, Merrijig Drive",
+      "addressLocality": "North Torquay",
+      "addressRegion": "VIC",
+      "postalCode": "3228",
+      "addressCountry": "AU"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@surfcoastcricketclub.com",
+      "contactType": "general"
+    },
+    "sameAs": [
+      "https://www.facebook.com/surfcoastcricketclub/",
+      "https://www.instagram.com/surfcoastcricketclub/",
+      "https://www.youtube.com/@surfcoastcricketclub"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -730,11 +776,11 @@
     </div>
   </a>
   <ul class="nav-links" role="list">
-    <li><a href="/about">About</a></li>
-    <li><a href="/teams">Teams</a></li>
-    <li><a href="/awards">Awards</a></li>
-    <li><a href="/partners">Partners</a></li>
-    <li><a href="/contact" class="nav-cta">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#fixtures">Fixtures</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -742,11 +788,11 @@
 </nav>
 
 <div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-  <a href="/about"    onclick="closeMenu()">About</a>
-  <a href="/teams"    onclick="closeMenu()">Teams</a>
-  <a href="/awards"   onclick="closeMenu()">Awards</a>
-  <a href="/partners" onclick="closeMenu()">Partners</a>
-  <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+  <a href="#about"    onclick="closeMenu()">About</a>
+  <a href="#teams"    onclick="closeMenu()">Teams</a>
+  <a href="#fixtures" onclick="closeMenu()">Fixtures</a>
+  <a href="#partners" onclick="closeMenu()">Partners</a>
+  <a href="#contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
 </div>
 
 <!-- HERO -->
@@ -769,8 +815,8 @@
     </p>
 
     <div class="hero-actions">
-      <a href="/teams"   class="btn-primary">Explore Our Teams</a>
-      <a href="/contact" class="btn-ghost">Get Involved</a>
+      <a href="#teams"   class="btn-primary">Explore Our Teams</a>
+      <a href="#contact" class="btn-ghost">Get Involved</a>
     </div>
 
     <div class="hero-stats" aria-label="Club statistics">
@@ -803,14 +849,14 @@
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact info@surfcoastcricketclub.com</div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-item"><div class="dot"></div>Welcome to Surf Coast Cricket Club &mdash; North Torquay&rsquo;s home of cricket</div>
     <div class="ticker-item"><div class="dot"></div>Now competing in the GCA</div>
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact info@surfcoastcricketclub.com</div>
   </div>
 </div>
 
@@ -833,7 +879,7 @@
       Surf Coast Cricket Club is a newly established, community-minded and inclusive club in the growing area of North Torquay. Based at the Banyul-Warri Fields Sporting Precinct on Merrijig Drive, we compete in the GCA.
     </p>
     <p class="section-desc" style="margin-top:12px;">
-      Formed through the merger of the Surf Coast Stingrays and the Surf Coast Suns Football Netball Club, we field 4 senior men&rsquo;s sides, a senior women&rsquo;s team, and a growing junior program. We acknowledge the Wadawurrung People as the Traditional Custodians of the land on which we play.
+      Formed through the merger of the Surf Coast Stingrays and the Surf Coast Suns Football Netball Club, we field 4 senior men&rsquo;s sides and a growing junior program. We acknowledge the Wadawurrung People as the Traditional Custodians of the land on which we play.
     </p>
   </div>
 </section>
@@ -844,7 +890,7 @@
     <span class="section-label">Proudly Supported By</span>
     <h2 class="section-title" id="partners-title" style="margin:0 auto;">Our <em>Partners</em></h2>
     <p class="section-desc" style="margin:16px auto 0;">
-      Outstanding local businesses who make Surf Coast Cricket Club possible. <a href="/partners" style="color:var(--gold);text-decoration:underline;">View all partners &rarr;</a>
+      Outstanding local businesses who make Surf Coast Cricket Club possible. <a href="#partners" style="color:var(--gold);text-decoration:underline;">View all partners &rarr;</a>
     </p>
   </div>
 
@@ -962,7 +1008,7 @@
     <p style="font-size:15px; color:var(--muted); margin-bottom:20px; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.65;">
       Interested in partnering with the Surf Coast Cricket Club? We&rsquo;d love to hear from you.
     </p>
-    <a href="/contact" class="btn-primary" style="display:inline-block;">Become a Partner</a>
+    <a href="#contact" class="btn-primary" style="display:inline-block;">Become a Partner</a>
   </div>
 </section>
 
@@ -1307,13 +1353,7 @@
     })
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(d => renderGames(d.data || d))
-    .catch(() => {
-      // Try via CORS proxy
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.playhq.com/v1/organisations/${ORG}/games`)}`)
-      .then(r=>r.json())
-      .then(d=>{ const parsed=JSON.parse(d.contents); renderGames(parsed.data||parsed); })
-      .catch(showFallback);
-    });
+    .catch(showFallback);
   })();
   </script>
 </section>
@@ -1406,11 +1446,11 @@
     <div>
       <h4 class="footer-col-title">Quick Links</h4>
       <ul class="footer-links">
-        <li><a href="/about">About the Club</a></li>
-        <li><a href="/teams">Our Teams</a></li>
-        <li><a href="/teams#fixtures">Fixtures</a></li>
+        <li><a href="#about">About the Club</a></li>
+        <li><a href="#teams">Our Teams</a></li>
+        <li><a href="#fixtures">Fixtures</a></li>
         <li><a href="#news">News</a></li>
-        <li><a href="/partners">Partners</a></li>
+        <li><a href="#partners">Partners</a></li>
       </ul>
     </div>
 
@@ -1428,7 +1468,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228.</p>
+    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228. &middot; <a href="privacy.html" style="color:inherit;text-decoration:underline;opacity:0.7;">Privacy Policy</a></p>
     <p class="footer-copy" style="color:var(--teal-lt);"><a href="https://stxacy.github.io" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,191,42,0.4);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal-lt)'" onmouseout="this.style.borderColor='rgba(232,191,42,0.4)'">Made by Vik Rathore on the Surf Coast</a></p>
   </div>
 </footer>
