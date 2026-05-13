@@ -6,6 +6,16 @@
   <meta name="theme-color" content="#232323" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   <title>Surf Coast Cricket Club | North Torquay</title>
+  <meta name="description" content="Surf Coast Cricket Club — a community-minded cricket club based at Banyul-Warri Fields, North Torquay VIC. Senior Men's and Junior cricket in the GCA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.surfcoastcricketclub.com" />
+  <meta property="og:title" content="Surf Coast Cricket Club | North Torquay" />
+  <meta property="og:description" content="A community-minded cricket club based at Banyul-Warri Fields, North Torquay. Senior Men's and Junior cricket in the GCA. All welcome." />
+  <meta property="og:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Surf Coast Cricket Club | North Torquay" />
+  <meta name="twitter:description" content="A community-minded cricket club based at Banyul-Warri Fields, North Torquay. Senior Men's and Junior cricket in the GCA." />
+  <meta name="twitter:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
@@ -423,24 +433,30 @@
       display: flex; align-items: flex-end; justify-content: space-between;
       margin-bottom: 40px; gap: 16px; flex-wrap: wrap;
     }
-    .fixtures-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tab-btn {
-      padding: 8px 18px; border: 1px solid var(--border); background: transparent;
-      border-radius: 100px; color: var(--muted); font-size: 13px;
-      font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s;
-    }
-    .tab-btn.active, .tab-btn:hover {
-      background: var(--teal); border-color: var(--teal); color: var(--white);
-    }
 
+    .fixtures-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tab-btn { padding: 8px 18px; border: 1px solid var(--border); background: transparent; border-radius: 100px; color: var(--muted); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
     .fixtures-list { display: flex; flex-direction: column; gap: 12px; }
-    .fixture-row {
-      display: grid; grid-template-columns: 90px 1fr auto 1fr 140px;
-      align-items: center; gap: 20px;
-      background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 12px; padding: 20px 24px; transition: border-color 0.2s;
+    .fixture-row { display: grid; grid-template-columns: 56px 1fr auto 1fr 140px; align-items: center; gap: 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; transition: border-color 0.2s; }
+    .fixture-row:hover { border-color: rgba(201,160,32,0.4); }
+    @media (max-width: 768px) {
+      .fixture-row { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 10px 16px; }
+      .fix-date { display: none; }
+      .fix-vs { display: none; }
+      .fix-meta { grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; }
     }
-    .fixture-row:hover { border-color: rgba(201,160,32,0.5); }
+    .fixtures-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .fixtures-card-top { height: 4px; background: linear-gradient(90deg, var(--teal), var(--teal-lt)); }
+    .fixtures-card-inner { display: grid; grid-template-columns: 88px 1fr; gap: 40px; align-items: center; padding: 48px; }
+    .fixtures-card-icon { width: 88px; height: 88px; border-radius: 20px; background: rgba(201,160,32,0.10); border: 1px solid rgba(201,160,32,0.22); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .fixtures-card-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.8vw, 32px); color: #1A1A1A; line-height: 1.2; margin-top: 8px; }
+    .fixtures-card-title em { font-style: normal; font-weight: 700; color: var(--teal-lt); }
+    .fixtures-card-desc { font-size: 15px; color: var(--muted); max-width: 520px; margin-top: 12px; line-height: 1.75; }
+    @media (max-width: 768px) {
+      .fixtures-card-inner { grid-template-columns: 1fr; gap: 20px; padding: 32px 24px; }
+      .fixtures-card-icon { display: none; }
+    }
     .fix-date { text-align: center; }
     .fix-day { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #1A1A1A; line-height: 1; }
     .fix-mon { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--teal-lt); }
@@ -803,14 +819,14 @@
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact info@surfcoastcricketclub.com</div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-item"><div class="dot"></div>Welcome to Surf Coast Cricket Club &mdash; North Torquay&rsquo;s home of cricket</div>
     <div class="ticker-item"><div class="dot"></div>Now competing in the GCA</div>
     <div class="ticker-item"><div class="dot"></div>4 Senior Men&apos;s sides &mdash; U/11 &amp; U/17 Junior programs</div>
     <div class="ticker-item"><div class="dot"></div>New 4-lane cricket nets at Banyul-Warri Fields &mdash; funded by $520,000 community investment</div>
     <div class="ticker-item"><div class="dot"></div>Register to play via PlayHQ &mdash; all skill levels welcome</div>
-    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact president@surfcoastcricketclub.com</div>
+    <div class="ticker-item"><div class="dot"></div>Sponsorship opportunities available &mdash; contact info@surfcoastcricketclub.com</div>
   </div>
 </div>
 
@@ -1179,7 +1195,7 @@
       <div class="news-body">
         <div class="news-cat">Announcement</div>
         <h3 class="news-headline">Surf Coast GCA 4 Announcement</h3>
-        <div class="news-date">Instagram &mdash; @surfcoastsunscc</div>
+        <div class="news-date">Instagram &mdash; @surfcoastcricketclub</div>
       </div>
     </a>
 
@@ -1214,106 +1230,107 @@
       <span class="section-label">Schedule</span>
       <h2 class="section-title" id="fixtures-title">Upcoming <em>Fixtures</em></h2>
     </div>
-    <div class="fixtures-tabs reveal" role="tablist" style="transition-delay:0.1s">
+  </div>
+
+  <div id="fix-loading" style="text-align:center;padding:48px 0;color:var(--muted);font-size:14px;letter-spacing:1px;">Loading fixtures&hellip;</div>
+
+  <div id="fix-live" style="display:none;">
+    <div class="fixtures-tabs" role="tablist">
       <button class="tab-btn active" role="tab" aria-selected="true">All Teams</button>
       <button class="tab-btn" role="tab" aria-selected="false">Senior Men&apos;s</button>
       <button class="tab-btn" role="tab" aria-selected="false">Juniors</button>
     </div>
-  </div>
-
-  <div id="fixtures-loading" style="text-align:center;padding:40px;color:var(--muted);font-size:14px;letter-spacing:1px;">Loading fixtures&hellip;</div>
-  <div class="fixtures-list reveal" id="fixtures-list" style="transition-delay:0.2s;display:none;" role="list"></div>
-  <div id="fixtures-fallback" style="display:none;">
-    <div class="fixture-row" style="grid-template-columns:1fr;justify-items:center;text-align:center;padding:32px 24px;">
-      <div style="width:52px;height:52px;border-radius:14px;background:rgba(201,160,32,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
-      <div style="font-size:18px;font-weight:600;color:#1A1A1A;margin-bottom:8px;">View fixtures &amp; results on PlayHQ</div>
-      <div style="font-size:14px;color:var(--muted);max-width:480px;line-height:1.7;">Full schedules, draws, ladders and results for all Surf Coast Cricket Club teams.</div>
-      <a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener" class="btn-primary" style="margin-top:20px;">View on PlayHQ &rarr;</a>
+    <div class="fixtures-list" id="fixtures-list" role="list"></div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener" class="btn-ghost">Full draw on PlayHQ &rarr;</a>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:28px;">
-    <a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener" class="btn-ghost" id="playhq-link" style="display:none;">Full draw on PlayHQ &rarr;</a>
+  <div id="fix-fallback" class="fixtures-card" style="display:none;">
+    <div class="fixtures-card-top"></div>
+    <div class="fixtures-card-inner">
+      <div class="fixtures-card-icon" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div>
+        <span class="section-label">Draws &amp; Results</span>
+        <h3 class="fixtures-card-title">Full draw &amp; results on <em>PlayHQ</em></h3>
+        <p class="fixtures-card-desc">Live schedules, draws, ladders and match results for all Surf Coast Cricket Club teams &mdash; updated in real time by Cricket Australia.</p>
+        <a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener" class="btn-primary" style="margin-top:28px;display:inline-block;">Open PlayHQ &rarr;</a>
+      </div>
+    </div>
   </div>
 
   <script>
   (function(){
-    const ORG  = 'e23be353';
-    const LIST = document.getElementById('fixtures-list');
-    const LOAD = document.getElementById('fixtures-loading');
-    const FALL = document.getElementById('fixtures-fallback');
-    const LINK = document.getElementById('playhq-link');
+    const ORG     = 'e23be353';
+    const LOADING = document.getElementById('fix-loading');
+    const LIVE    = document.getElementById('fix-live');
+    const LIST    = document.getElementById('fixtures-list');
+    const FALL    = document.getElementById('fix-fallback');
 
-    const GRADE_NAMES = {
-      'A':'A Grade','B':'B Grade','C':'C Grade','D':'D Grade',
-      'Women':'Women\'s','Junior':'Juniors','U11':'Under 11',
-      'U13':'Under 13','U15':'Under 15','U17':'Under 17'
-    };
+    function fmtDay(iso){ return new Date(iso).toLocaleDateString('en-AU',{day:'numeric'}); }
+    function fmtMon(iso){ return new Date(iso).toLocaleDateString('en-AU',{month:'short'}); }
+    function fmtDate(iso){ return new Date(iso).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
+    function fmtTime(iso){ return new Date(iso).toLocaleTimeString('en-AU',{hour:'numeric',minute:'2-digit',hour12:true}); }
 
-    function fmtDate(iso){
-      const d = new Date(iso);
-      return d.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
-    }
-    function fmtTime(iso){
-      const d = new Date(iso);
-      return d.toLocaleTimeString('en-AU',{hour:'numeric',minute:'2-digit',hour12:true});
-    }
     function resultTag(g){
-      if(!g.status || g.status==='scheduled') return '';
-      const us = g.scores?.find(s=>s.teamId && g.competitors?.find(c=>c.teamId===s.teamId && c.name?.toLowerCase().includes('surf coast')));
-      const them = g.scores?.find(s=>s!==us);
-      if(!us||!them) return `<span style="font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;">${g.status}</span>`;
-      const win = Number(us.runs)>Number(them.runs);
-      const draw = Number(us.runs)===Number(them.runs);
-      const col = win?'var(--green)':draw?'var(--muted)':'var(--teal-lt)';
-      const lbl = win?'W':draw?'D':'L';
-      return `<span style="font-size:13px;font-weight:700;color:${col};background:rgba(0,0,0,0.2);padding:2px 10px;border-radius:4px;">${lbl}</span>`;
+      if(!g.status||g.status==='scheduled') return '';
+      const us=g.scores?.find(s=>g.competitors?.find(c=>c.teamId===s.teamId&&c.name?.toLowerCase().includes('surf coast')));
+      const them=g.scores?.find(s=>s!==us);
+      if(!us||!them) return '';
+      const win=Number(us.runs)>Number(them.runs),draw=Number(us.runs)===Number(them.runs);
+      const col=win?'#2ecc71':draw?'var(--muted)':'var(--teal-lt)';
+      return `<span style="font-size:12px;font-weight:700;color:${col};background:rgba(0,0,0,0.06);padding:2px 9px;border-radius:4px;">${win?'W':draw?'D':'L'}</span>`;
     }
 
     function renderGames(games){
       if(!games||!games.length){ showFallback(); return; }
-      LOAD.style.display='none';
-      LIST.style.display='flex';
-      LINK.style.display='inline-block';
-      LIST.innerHTML = games.slice(0,10).map(g=>{
-        const home = g.competitors?.[0]?.name || 'TBC';
-        const away = g.competitors?.[1]?.name || 'TBC';
-        const date = g.scheduledStartTime ? fmtDate(g.scheduledStartTime) : 'TBC';
-        const time = g.scheduledStartTime ? fmtTime(g.scheduledStartTime) : '';
-        const venue = g.venue?.name || 'Venue TBC';
-        const grade = g.grade?.name || '';
-        const isPast = g.scheduledStartTime && new Date(g.scheduledStartTime) < new Date();
+      LOADING.style.display='none';
+      LIVE.style.display='block';
+      LIST.innerHTML=games.slice(0,12).map(g=>{
+        const home=g.competitors?.[0]?.name||'TBC';
+        const away=g.competitors?.[1]?.name||'TBC';
+        const hasDt=!!g.scheduledStartTime;
+        const grade=g.grade?.name||'';
+        const venue=g.venue?.name||'';
+        const isPast=hasDt&&new Date(g.scheduledStartTime)<new Date();
         return `<div class="fixture-row" role="listitem" data-grade="${grade.toLowerCase()}">
-          <div style="font-size:12px;color:var(--teal);font-weight:700;letter-spacing:1px;text-transform:uppercase;">${grade}</div>
-          <div style="font-weight:700;color:#1A1A1A;text-align:right;">${home}</div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:2px;">vs</div>
+          <div class="fix-date"><div class="fix-day">${hasDt?fmtDay(g.scheduledStartTime):'—'}</div><div class="fix-mon">${hasDt?fmtMon(g.scheduledStartTime):''}</div></div>
+          <div class="fix-team">${home}</div>
+          <div class="fix-vs">vs</div>
+          <div class="fix-team away">${away}</div>
+          <div class="fix-meta">
+            <div class="fix-grade">${grade}</div>
+            <div class="fix-venue">${hasDt?fmtTime(g.scheduledStartTime):''}${venue?' &middot; '+venue.split(',')[0]:''}</div>
             ${isPast?resultTag(g):''}
-          </div>
-          <div style="font-weight:700;color:#1A1A1A;">${away}</div>
-          <div style="text-align:right;">
-            <div style="font-size:13px;color:#1A1A1A;font-weight:600;">${date}</div>
-            <div style="font-size:12px;color:var(--muted);">${time}${venue!=='Venue TBC'?' · '+venue.split(',')[0]:''}</div>
           </div>
         </div>`;
       }).join('');
+
+      LIVE.querySelectorAll('.tab-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          LIVE.querySelectorAll('.tab-btn').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+          btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+          const filter=btn.textContent.trim().toLowerCase();
+          LIST.querySelectorAll('.fixture-row').forEach(row=>{
+            if(filter==='all teams'){ row.style.display=''; return; }
+            const gr=(row.dataset.grade||'').toLowerCase();
+            const match=(filter==="senior men's"&&(gr.includes('grade')||gr.includes('men')))||(filter==='juniors'&&(gr.includes('junior')||gr.includes('u/')||gr.includes('under')));
+            row.style.display=match?'':'none';
+          });
+        });
+      });
     }
 
-    function showFallback(){ LOAD.style.display='none'; FALL.style.display='block'; }
+    function showFallback(){ LOADING.style.display='none'; FALL.style.display='block'; }
 
-    // Try PlayHQ public API
-    fetch(`https://api.playhq.com/v1/organisations/${ORG}/games`, {
-      headers: { 'x-phq-tenant': 'cricket-australia' }
-    })
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(d => renderGames(d.data || d))
-    .catch(() => {
-      // Try via CORS proxy
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.playhq.com/v1/organisations/${ORG}/games`)}`)
-      .then(r=>r.json())
-      .then(d=>{ const parsed=JSON.parse(d.contents); renderGames(parsed.data||parsed); })
+    const headers = new Headers();
+    headers.append('Accept','application/json');
+    fetch('https://api.playhq.com/partner/v2/organisations/'+ORG+'/games',{method:'GET',headers,redirect:'follow'})
+      .then(r=>r.ok?r.json():Promise.reject(r.status))
+      .then(d=>renderGames(d.data||d))
       .catch(showFallback);
-    });
   })();
   </script>
 </section>
@@ -1334,8 +1351,8 @@
       </div>
       <div class="contact-item" role="listitem">
         <div>
-          <div class="contact-label">Email (President &mdash; Ben Tekin)</div>
-          <div class="contact-val">president@surfcoastcricketclub.com</div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">info@surfcoastcricketclub.com</div>
         </div>
       </div>
       <div class="contact-item" role="listitem">
@@ -1488,32 +1505,6 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => revealObs.observe(el));
-
-  // Tab buttons — filter fixture rows by grade
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      const filter = btn.textContent.trim().toLowerCase();
-      document.querySelectorAll('#fixtures-list .fixture-row').forEach(row => {
-        if (filter === 'all teams') {
-          row.style.display = '';
-        } else {
-          const grade = (row.dataset.grade || '').toLowerCase();
-          const match =
-            (filter === "senior men's" && (grade.includes('grade') || grade.includes('men'))) ||
-            (filter === "women's"       && grade.includes('women')) ||
-            (filter === 'juniors'       && (grade.includes('junior') || grade.includes('u/') || grade.includes('under')));
-          row.style.display = match ? '' : 'none';
-        }
-      });
-    });
-  });
 
   // Contact form
   function handleSubmit(e) {
