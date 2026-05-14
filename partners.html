@@ -3,19 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#232323" />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <title>Our Partners | Surf Coast Cricket Club</title>
-  <meta name="description" content="The local businesses who proudly support Surf Coast Cricket Club. Interested in partnering? Get in touch with us." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.surfcoastcricketclub.com/partners" />
-  <meta property="og:title" content="Our Partners | Surf Coast Cricket Club" />
-  <meta property="og:description" content="Outstanding local businesses who make Surf Coast Cricket Club possible." />
-  <meta property="og:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Our Partners | Surf Coast Cricket Club" />
-  <meta name="twitter:description" content="Outstanding local businesses who make Surf Coast Cricket Club possible." />
-  <meta name="twitter:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <title>Partners | Surf Coast Cricket Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
@@ -41,9 +30,14 @@
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
 
+    /* PAGE SPLASH */
+    #page-splash { position: fixed; inset: 0; z-index: 9999; background: #232323; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+    #page-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    #page-splash img { width: min(220px, 55vw); animation: pageSplashIn 0.4s ease forwards; }
+    @keyframes pageSplashIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: rgba(30,26,26,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-    @media (max-width: 1024px) { nav.nav-hidden { transform: translateY(-110%); } }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: transparent; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 1s ease; }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo-badge { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; }
     .nav-logo-text { line-height: 1.2; }
@@ -54,24 +48,26 @@
     .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--teal-lt); transition: width 0.25s; }
     .nav-links a:hover { color: #FFFFFF; }
     .nav-links a:hover::after { width: 100%; }
+    .nav-links a.nav-active { color: var(--teal-lt); }
+    .nav-links a.nav-active::after { width: 100%; }
     .nav-cta { padding: 9px 22px; background: var(--teal); color: var(--white) !important; border-radius: 8px; transition: background 0.2s, transform 0.15s !important; }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: none; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
-    .nav-mobile { display: none; flex-direction: column; position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px calc(5% + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(5% + env(safe-area-inset-left)); gap: 20px; z-index: 999; }
+    .nav-mobile { display: none; flex-direction: column; position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 5%; gap: 20px; z-index: 999; }
     .nav-mobile.open { display: flex; }
     .nav-mobile a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
     .nav-mobile a:hover { color: var(--white); }
 
-    /* PAGE HERO */
-    .page-hero { position: relative; background: linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%), url('assets/images/hero-bg.jpg') center 40%/cover no-repeat; min-height: 360px; display: flex; align-items: flex-end; padding: calc(72px + env(safe-area-inset-top) + 60px) 5% 72px; overflow: hidden; }
-    .page-hero-content { position: relative; z-index: 2; max-width: 700px; animation: fadeUp 0.8s ease both; }
-    .page-hero-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
-    .page-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); line-height: 1.1; color: #F5F0EE; }
-    .page-hero-title em { font-style: italic; color: var(--teal-lt); }
-    .page-hero-desc { margin-top: 16px; font-size: clamp(15px, 1.7vw, 17px); color: rgba(245,240,238,0.72); max-width: 520px; line-height: 1.75; }
-    @media (max-width: 768px) { .page-hero { min-height: 260px; padding-bottom: 48px; } }
+    /* PAGE HEADER */
+    .page-header { background: #1E1A1A; padding: 160px 5% 80px; position: relative; overflow: hidden; }
+    .page-header-bg { position: absolute; inset: 0; background: url('/assets/images/hero-bg.jpg') center 60%/cover no-repeat; opacity: 0.22; z-index: 0; }
+    .page-header-content { position: relative; z-index: 1; max-width: 700px; }
+    .page-header-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
+    .page-header-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 8vw, 100px); line-height: 0.9; letter-spacing: 3px; color: #F5F0EE; margin-top: 12px; }
+    .page-header-title .accent { color: var(--teal-lt); }
+    .page-header-sub { font-size: 16px; color: rgba(245,240,238,0.6); margin-top: 20px; max-width: 520px; line-height: 1.75; }
 
     /* SECTIONS */
     section { padding: 100px 5%; }
@@ -82,41 +78,51 @@
     .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* PARTNER REEL */
-    #partners { background: var(--navy-mid); text-align: center; overflow: hidden; }
-    .sponsors-head { margin-bottom: 52px; }
-    .reel-outer { overflow: hidden; margin: 48px -5vw 0; -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%); }
-    .reel-track { display: flex; align-items: center; gap: 16px; width: max-content; animation: reel-scroll 36s linear infinite; padding: 16px 5vw; }
-    .reel-track:hover { animation-play-state: paused; }
-    @keyframes reel-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .reel-card { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 184px; height: 101px; padding: 6px 8px; background: #FFFFFF; border: 1.5px solid rgba(0,0,0,0.09); border-radius: 12px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; overflow: hidden; }
-    .reel-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .reel-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .reel-card.dark { background: #1E1E1E; border-color: rgba(255,255,255,0.1); }
-    .reel-name { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1.5px; color: #1A1A1A; text-align: center; line-height: 1.3; }
-    @media (max-width: 480px) { .reel-card { width: 144px; height: 80px; } .reel-track { gap: 12px; } }
-
-    /* BECOME A PARTNER */
-    .partner-cta { background: #1E1A1A; border-radius: var(--radius); padding: 64px; text-align: center; }
-    .partner-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); color: var(--white); line-height: 1.15; }
-    .partner-cta h2 em { font-style: italic; color: var(--teal-lt); }
-    .partner-cta p { font-size: 16px; color: rgba(245,240,238,0.65); margin-top: 16px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.75; }
-    .partner-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 800px; margin: 48px auto; }
-    .benefit-item { text-align: center; }
-    .benefit-icon { width: 52px; height: 52px; border-radius: 16px; background: rgba(201,160,32,0.12); border: 1px solid rgba(201,160,32,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
-    .benefit-title { font-size: 14px; font-weight: 600; color: var(--white); }
-    .benefit-desc { font-size: 13px; color: rgba(245,240,238,0.5); margin-top: 6px; line-height: 1.6; }
-
     /* BUTTONS */
     .btn-primary { padding: 14px 32px; background: linear-gradient(135deg, var(--teal), var(--teal-lt)); color: var(--white); text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; box-shadow: 0 8px 32px rgba(201,160,32,0.4); transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,160,32,0.55); }
 
+    /* PARTNERS */
+    #partners { background: var(--navy); text-align: center; }
+    .sponsors-head { margin-bottom: 52px; }
+    .sponsor-tier { margin-bottom: 40px; }
+    .sponsor-tier-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 24px; padding: 6px 18px; border-radius: 99px; }
+    .tier-naming   .sponsor-tier-label { color: #fff; background: var(--teal); border: 1px solid var(--teal); }
+    .tier-platinum .sponsor-tier-label { color: #fff; background: var(--green); border: 1px solid var(--green); }
+    .tier-gold     .sponsor-tier-label { color: #5C4A00; background: rgba(201,160,32,0.18); border: 1px solid rgba(201,160,32,0.6); }
+    .tier-silver   .sponsor-tier-label { color: #1A2A38; background: rgba(100,130,160,0.15); border: 1px solid rgba(100,130,160,0.5); }
+    .sponsors-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .sponsor-card { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-width: 140px; height: 88px; padding: 6px 8px; background: #FFFFFF; border: 1.5px solid rgba(0,0,0,0.10); border-radius: 12px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; overflow: hidden; }
+    .sponsor-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); border-color: rgba(0,0,0,0.22); }
+    .sponsor-card img { max-width: 130px; max-height: 72px; width: 100%; height: 100%; object-fit: contain; display: block; }
+    .sponsor-card .sc-name { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1.5px; color: #1A1A1A; text-align: center; line-height: 1.2; }
+    .sponsor-card.dark-card { background: #1E1E1E; border-color: rgba(255,255,255,0.1); }
+    .sponsor-card.dark-card .sc-name { color: #F5F0EE; }
+    .tier-naming .sponsor-card   { min-width: 180px; height: 100px; }
+    .tier-platinum .sponsor-card { min-width: 160px; height: 92px; }
+    .tier-silver .sponsor-card   { min-width: 120px; height: 76px; }
+    .tier-bronze .sponsor-tier-label { color: #5C3010; background: rgba(184,115,51,0.15); border: 1px solid rgba(184,115,51,0.5); }
+    .tier-bronze .sponsor-card  { min-width: 110px; height: 70px; }
+    .sponsor-divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 8px 0 32px; }
+
+    /* BECOME A PARTNER CTA */
+    #become { background: var(--navy-mid); }
+    .become-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .become-stat-row { display: flex; gap: 40px; margin-top: 32px; flex-wrap: wrap; }
+    .become-stat .num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--teal-lt); line-height: 1; }
+    .become-stat .lbl { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .become-benefits { display: flex; flex-direction: column; gap: 16px; }
+    .benefit-item { display: flex; gap: 14px; align-items: flex-start; }
+    .benefit-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(201,160,32,0.15); border: 1px solid rgba(201,160,32,0.3); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .benefit-title { font-size: 14px; font-weight: 600; color: #1A1A1A; }
+    .benefit-desc { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.6; }
+
     /* FOOTER */
     footer { background: #1E1A1A; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 5% calc(32px + env(safe-area-inset-bottom)); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .footer-brand-desc { color: #AAAAAA; font-size: 14px; line-height: 1.75; margin-top: 16px; max-width: 280px; }
     .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
-    .social-btn { width: 38px; height: 38px; border-radius: 10px; background: var(--card-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: all 0.2s; }
+    .social-btn { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; text-decoration: none; color: #AAAAAA; transition: all 0.2s; }
     .social-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
     .footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -125,40 +131,47 @@
     .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .footer-copy { font-size: 13px; color: #AAAAAA; }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } .partner-benefits { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1024px) {
+      .become-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       section { padding: 72px 5%; }
+      .page-header { padding: 120px 5% 60px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; }
-      .partner-benefits { grid-template-columns: 1fr; }
-      .partner-cta { padding: 44px 24px; }
+      .sponsor-card { min-width: 120px; height: 76px; }
+      .tier-naming .sponsor-card { min-width: 140px; height: 88px; }
+      .tier-platinum .sponsor-card { min-width: 130px; height: 80px; }
+      .tier-silver .sponsor-card { min-width: 100px; height: 68px; }
     }
-    @media (max-width: 480px) { section { padding: 52px 5%; } }
-    @media (orientation: landscape) and (max-width: 1024px) {
-      nav { padding-left: calc(5% + env(safe-area-inset-left)); padding-right: calc(5% + env(safe-area-inset-right)); }
-      section { padding-left: calc(5% + env(safe-area-inset-left)); padding-right: calc(5% + env(safe-area-inset-right)); }
+    @media (max-width: 480px) {
+      section { padding: 52px 5%; }
+      .page-header { padding: 100px 5% 48px; }
+      .sponsor-card { min-width: 100px; height: 68px; padding: 8px 10px; }
+      .tier-naming .sponsor-card { min-width: 120px; height: 80px; }
+      .sponsor-card img { max-width: 90px; }
+      .tier-naming .sponsor-card img { max-width: 110px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
+<div id="page-splash" aria-hidden="true">
+  <img src="/assets/images/sccc-logo.png" alt="" />
+</div>
+
 <nav id="navbar">
   <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
-    <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
-    <div class="nav-logo-text">
-      <span>Surf Coast Cricket Club</span>
-    </div>
+    <img class="nav-logo-badge" src="/assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+    <div class="nav-logo-text"><span>Surf Coast Cricket Club</span></div>
   </a>
   <ul class="nav-links" role="list">
     <li><a href="/about">About</a></li>
     <li><a href="/teams">Teams</a></li>
     <li><a href="/awards">Awards</a></li>
-    <li><a href="/partners">Partners</a></li>
+    <li><a href="/partners" class="nav-active">Partners</a></li>
     <li><a href="/contact" class="nav-cta">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -167,139 +180,169 @@
 </nav>
 
 <div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-  <a href="/about"    onclick="closeMenu()">About</a>
-  <a href="/teams"    onclick="closeMenu()">Teams</a>
-  <a href="/awards"   onclick="closeMenu()">Awards</a>
+  <a href="/about" onclick="closeMenu()">About</a>
+  <a href="/teams" onclick="closeMenu()">Teams</a>
+  <a href="/awards" onclick="closeMenu()">Awards</a>
   <a href="/partners" onclick="closeMenu()">Partners</a>
-  <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+  <a href="/contact" onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
 </div>
 
-<!-- PAGE HERO -->
-<div class="page-hero" role="banner">
-  <div class="page-hero-content">
-    <span class="page-hero-label">Proudly Supported By</span>
-    <h1 class="page-hero-title">Our <em>Partners</em></h1>
-    <p class="page-hero-desc">Outstanding local businesses who believe in community cricket and make Surf Coast Cricket Club possible.</p>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <span class="page-header-label">Proudly Supported By</span>
+    <h1 class="page-header-title">Our<br><span class="accent">Partners</span></h1>
+    <p class="page-header-sub">Outstanding local businesses who make Surf Coast Cricket Club possible. We&rsquo;re grateful for every one of them.</p>
   </div>
 </div>
 
-<!-- PARTNER REEL -->
+<!-- PARTNERS -->
 <section id="partners" aria-labelledby="partners-title">
-  <div class="sponsors-head reveal" style="text-align:center;">
+  <div class="sponsors-head reveal">
     <span class="section-label">Proudly Supported By</span>
-    <h2 class="section-title" id="partners-title" style="margin:0 auto;">Our <em>Partners</em></h2>
-    <p class="section-desc" style="margin:16px auto 0;">Outstanding local businesses who make Surf Coast Cricket Club possible.</p>
+    <h2 class="section-title" id="partners-title">Our <em>Partners</em></h2>
+    <p class="section-desc" style="margin:16px auto 0;">
+      We&rsquo;re proud to partner with outstanding local businesses who make Surf Coast Cricket Club possible. Interested in joining? <a href="/contact" style="color:var(--gold);text-decoration:underline;">Get in touch.</a>
+    </p>
   </div>
 
-  <div class="reel-outer">
-    <div class="reel-track" id="reelTrack">
-      <!-- SET 1 -->
-      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" aria-label="4 Pines Brewing Company">
+  <!-- MAJOR NAMING RIGHTS -->
+  <div class="sponsor-tier tier-naming reveal">
+    <div><span class="sponsor-tier-label">&#9733; Major Naming Rights Partners</span></div>
+    <div class="sponsors-row">
+      <a class="sponsor-card dark-card" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener">
         <img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="4 Pines Brewing Company" />
       </a>
-      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" aria-label="Captain's Catch Fish & Chips">
-        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch" />
+      <a class="sponsor-card dark-card" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/captains-catch.png" alt="Captain's Catch Fish &amp; Chips Torquay" />
       </a>
-      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" aria-label="Eliza Gold Property">
-        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold" />
-      </a>
-      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" aria-label="Taylor Legal">
-        <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
-      </a>
-      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" aria-label="M Group Mulcahy & Co">
-        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group" />
-      </a>
-      <a class="reel-card" href="https://www.gracecartledgefinance.com.au/" target="_blank" rel="noopener" aria-label="Grace Cartledge Finance">
-        <img src="/assets/images/partners/grace-cartledge-finance.webp" alt="Grace Cartledge Finance" />
-      </a>
-      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" aria-label="Mikro Coffee Roasters">
-        <img src="/assets/images/partners/mikro-coffee.png" alt="Mikro Coffee Roasters" />
-      </a>
-      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" aria-label="The Running Company Torquay">
-        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company" />
-      </a>
-      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" aria-label="The Kiosk Torquay">
-        <span class="reel-name">The Kiosk<br>Torquay</span>
-      </a>
-      <a class="reel-card" href="https://www.indigowolf.com.au/" target="_blank" rel="noopener" aria-label="Indigo Wolf">
-        <img src="/assets/images/partners/indigo-wolf.png" alt="Indigo Wolf" />
-      </a>
-      <a class="reel-card" href="https://www.facebook.com/p/Miss-Mias-61580853634412/" target="_blank" rel="noopener" aria-label="Miss Mia's">
-        <span class="reel-name">Miss Mia&rsquo;s</span>
-      </a>
-      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" aria-label="Surf Coast Times">
-        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
-      </a>
-      <a class="reel-card" href="https://www.instagram.com/blitz.nutrition_/" target="_blank" rel="noopener" aria-label="Blitz Nutrition">
-        <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
-      </a>
-      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" aria-label="DBM Signs">
-        <span class="reel-name">DBM Signs</span>
-      </a>
-      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" aria-label="Subway Waurn Ponds">
-        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
-      </a>
-      <a class="reel-card" href="https://www.instagram.com/generalpublicaustralia/" target="_blank" rel="noopener" aria-label="General Public">
-        <img src="/assets/images/partners/general-public.png" alt="General Public" />
-      </a>
-      <a class="reel-card" href="https://www.facebook.com/p/Surfcoast-Car-Detailing-100057033926994/" target="_blank" rel="noopener" aria-label="Surfcoast Car Detailing">
-        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="Surfcoast Car Detailing" />
-      </a>
-      <!-- SET 2 (duplicate for seamless loop) -->
-      <a class="reel-card dark" href="https://www.4pinesbeer.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="https://www.4pinesbeer.com.au/_assets/images/4Pines-logo-trees-white.png" alt="" /></a>
-      <a class="reel-card dark" href="https://captainscatchtorquay.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/captains-catch.png" alt="" /></a>
-      <a class="reel-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="" /></a>
-      <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/taylor-legal.webp" alt="" /></a>
-      <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="" /></a>
-      <a class="reel-card" href="https://www.gracecartledgefinance.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/grace-cartledge-finance.webp" alt="" /></a>
-      <a class="reel-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/mikro-coffee.png" alt="" /></a>
-      <a class="reel-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="" /></a>
-      <a class="reel-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener" tabindex="-1"><span class="reel-name">The Kiosk<br>Torquay</span></a>
-      <a class="reel-card" href="https://www.indigowolf.com.au/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/indigo-wolf.png" alt="" /></a>
-      <a class="reel-card" href="https://www.facebook.com/p/Miss-Mias-61580853634412/" target="_blank" rel="noopener" tabindex="-1"><span class="reel-name">Miss Mia&rsquo;s</span></a>
-      <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" tabindex="-1"><img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" /></a>
-      <a class="reel-card" href="https://www.instagram.com/blitz.nutrition_/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/blitz-nutrition.png" alt="" /></a>
-      <a class="reel-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener" tabindex="-1"><span class="reel-name">DBM Signs</span></a>
-      <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/subway.png" alt="" /></a>
-      <a class="reel-card" href="https://www.instagram.com/generalpublicaustralia/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/general-public.png" alt="" /></a>
-      <a class="reel-card" href="https://www.facebook.com/p/Surfcoast-Car-Detailing-100057033926994/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/images/partners/surfcoast-car-detailing.png" alt="" /></a>
     </div>
   </div>
+
+  <hr class="sponsor-divider reveal">
+
+  <!-- ULTIMATE PARTNERS -->
+  <div class="sponsor-tier tier-platinum reveal">
+    <div><span class="sponsor-tier-label">Ultimate Partners</span></div>
+    <div class="sponsors-row">
+      <a class="sponsor-card" href="https://www.elizagoldproperty.com.au/" target="_blank" rel="noopener">
+        <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold Property" />
+      </a>
+      <a class="sponsor-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
+      </a>
+      <a class="sponsor-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener">
+        <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group — Mulcahy &amp; Co" />
+      </a>
+      <a class="sponsor-card" href="https://www.gracecartledgefinance.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/grace-cartledge-finance.webp" alt="Grace Cartledge Finance" />
+      </a>
+    </div>
+  </div>
+
+  <hr class="sponsor-divider reveal">
+
+  <!-- GOLD PARTNERS -->
+  <div class="sponsor-tier tier-gold reveal">
+    <div><span class="sponsor-tier-label">Gold Partners</span></div>
+    <div class="sponsors-row">
+      <a class="sponsor-card" href="https://www.mikrocoffeeroasters.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/mikro-coffee.png" alt="Mikro Coffee Roasters" />
+      </a>
+      <a class="sponsor-card" href="https://therunningcompany.com.au/" target="_blank" rel="noopener">
+        <img src="https://www.therunningcompany.com.au/wp-content/uploads/2021/10/Untitled-design-8.png" alt="The Running Company Torquay" />
+      </a>
+      <a class="sponsor-card" href="https://www.instagram.com/the_kiosk_torquay/" target="_blank" rel="noopener">
+        <span class="sc-name">The Kiosk<br>Torquay</span>
+      </a>
+      <a class="sponsor-card" href="https://www.indigowolf.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/indigo-wolf.png" alt="Indigo Wolf" />
+      </a>
+      <a class="sponsor-card" href="https://www.facebook.com/p/Miss-Mias-61580853634412/" target="_blank" rel="noopener">
+        <span class="sc-name">Miss Mia&rsquo;s</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="sponsor-divider reveal">
+
+  <!-- SILVER PARTNERS -->
+  <div class="sponsor-tier tier-silver reveal">
+    <div><span class="sponsor-tier-label">Silver Partners</span></div>
+    <div class="sponsors-row">
+      <a class="sponsor-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener">
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
+        <span class="sc-name" style="font-size:11px;margin-top:4px;">Surf Coast Times</span>
+      </a>
+      <a class="sponsor-card" href="https://www.instagram.com/blitz.nutrition_/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
+      </a>
+      <a class="sponsor-card" href="https://www.dbmsigns.com.au/" target="_blank" rel="noopener">
+        <span class="sc-name">DBM Signs</span>
+      </a>
+      <a class="sponsor-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
+      </a>
+      <a class="sponsor-card" href="https://www.beansandbeerstorquay.com.au/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/beans-and-beers.png" alt="Beans and Beers Torquay" />
+      </a>
+      <a class="sponsor-card" href="https://www.facebook.com/p/Surf-Coast-Quality-Meats-100057478478445/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/surfcoast-quality-meats.png" alt="Surfcoast Quality Meats" />
+      </a>
+    </div>
+  </div>
+
+  <hr class="sponsor-divider reveal">
+
+  <!-- BRONZE PARTNERS -->
+  <div class="sponsor-tier tier-bronze reveal">
+    <div><span class="sponsor-tier-label">Bronze Partners</span></div>
+    <div class="sponsors-row">
+      <a class="sponsor-card" href="https://www.instagram.com/generalpublicaustralia/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/general-public.png" alt="General Public" />
+      </a>
+      <a class="sponsor-card" href="https://www.facebook.com/p/Surfcoast-Car-Detailing-100057033926994/" target="_blank" rel="noopener">
+        <img src="/assets/images/partners/surfcoast-car-detailing.png" alt="Surfcoast Car Detailing" />
+      </a>
+    </div>
+  </div>
+
 </section>
 
 <!-- BECOME A PARTNER -->
-<section style="background:var(--navy-mid);">
-  <div class="partner-cta reveal">
-    <span class="section-label" style="color:var(--teal-lt);">Get Involved</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);color:#1A1A1A;line-height:1.15;margin-top:8px;">Become a <em style="font-style:italic;color:var(--teal-lt);">Partner</em></h2>
-    <p style="font-size:16px;color:var(--muted);margin-top:16px;max-width:520px;line-height:1.75;">Partner with a growing community club and put your brand in front of the North Torquay community. We offer flexible partnership packages to suit every business.</p>
-
-    <div class="partner-benefits" style="margin-top:48px;">
-      <div class="benefit-item">
-        <div class="benefit-icon" style="background:rgba(201,160,32,0.12);border-color:rgba(201,160,32,0.3);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="benefit-title">Community Reach</div>
-        <div class="benefit-desc" style="color:var(--muted);">Tap into the growing North Torquay community via match days and social media.</div>
+<section id="become" aria-labelledby="become-title">
+  <div class="become-inner">
+    <div class="reveal">
+      <span class="section-label">Get Involved</span>
+      <h2 class="section-title" id="become-title">Become a <em>Partner</em></h2>
+      <p class="section-desc">Align your brand with a passionate, growing community cricket club at the heart of North Torquay. Partnership packages to suit every budget.</p>
+      <div class="become-stat-row">
+        <div class="become-stat"><div class="num">200+</div><div class="lbl">Club Members</div></div>
+        <div class="become-stat"><div class="num">5+</div><div class="lbl">Teams</div></div>
+        <div class="become-stat"><div class="num">GCA</div><div class="lbl">Competition</div></div>
       </div>
-      <div class="benefit-item">
-        <div class="benefit-icon" style="background:rgba(201,160,32,0.12);border-color:rgba(201,160,32,0.3);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div class="benefit-title">Brand Visibility</div>
-        <div class="benefit-desc" style="color:var(--muted);">Logo placement on our website, social channels, and playing kit.</div>
-      </div>
-      <div class="benefit-item">
-        <div class="benefit-icon" style="background:rgba(201,160,32,0.12);border-color:rgba(201,160,32,0.3);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div class="benefit-title">Local Goodwill</div>
-        <div class="benefit-desc" style="color:var(--muted);">Show your support for community sport and be seen as a local leader.</div>
+      <div style="margin-top:36px;">
+        <a href="/contact" class="btn-primary">Get in Touch</a>
       </div>
     </div>
-
-    <div style="margin-top:44px;">
-      <a href="/contact" class="btn-primary">Get in Touch</a>
+    <div class="become-benefits reveal" style="transition-delay:0.15s">
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="benefit-title">Ground Signage</div><div class="benefit-desc">Prominent exposure at Banyul-Warri Fields during all home games and training sessions.</div></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><div class="benefit-title">Digital Presence</div><div class="benefit-desc">Logo placement on the club website, social media mentions, and game-day content.</div></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div><div class="benefit-title">Kit Branding</div><div class="benefit-desc">Brand on player playing and training apparel for naming rights and premium tiers.</div></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><div class="benefit-title">Community Connection</div><div class="benefit-desc">Associate with a family-friendly club that&rsquo;s central to the North Torquay community.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -309,14 +352,14 @@
   <div class="footer-grid">
     <div>
       <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
-        <img class="nav-logo-badge" src="assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+        <img class="nav-logo-badge" src="/assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
         <div class="nav-logo-text" style="margin-left:12px;"><span>Surf Coast Cricket Club</span></div>
       </a>
-      <p class="footer-brand-desc">A newly established, community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA. We acknowledge the Wadawurrung People as the Traditional Custodians of this land.</p>
-      <div class="footer-socials" role="list" aria-label="Social media">
-        <a class="social-btn" href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="social-btn" href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a class="social-btn" href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener" role="listitem" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <p class="footer-brand-desc">A newly established, community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="social-btn" href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a class="social-btn" href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       </div>
     </div>
     <div>
@@ -336,7 +379,7 @@
         <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">GCA Fixtures</a></li>
         <li><a href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener">YouTube (Live Streams)</a></li>
+        <li><a href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </div>
   </div>
@@ -347,34 +390,29 @@
 </footer>
 
 <script>
+  /* PAGE SPLASH */
+  (function() {
+    const ps = document.getElementById('page-splash');
+    setTimeout(() => ps.classList.add('hidden'), 550);
+  })();
+
   const navbar = document.getElementById('navbar');
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y > lastScrollY + 4) navbar.classList.add('nav-hidden');
-    else if (y < lastScrollY - 4) navbar.classList.remove('nav-hidden');
-    lastScrollY = y;
-  }, { passive: true });
+  window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
+
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
   let menuOpen = false;
   hamburger.addEventListener('click', () => {
-    menuOpen = !menuOpen; mobileNav.classList.toggle('open', menuOpen);
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
     hamburger.setAttribute('aria-expanded', String(menuOpen));
     const spans = hamburger.querySelectorAll('span');
     if (menuOpen) { spans[0].style.transform='rotate(45deg) translate(5px,5px)'; spans[1].style.opacity='0'; spans[2].style.transform='rotate(-45deg) translate(5px,-5px)'; }
     else { spans.forEach(s => { s.style.transform=''; s.style.opacity=''; }); }
   });
-  function closeMenu() {
-    menuOpen = false; mobileNav.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-    hamburger.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity=''; });
-  }
-  const revealEls = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => revealObs.observe(el));
+  function closeMenu() { menuOpen=false; mobileNav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); hamburger.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';}); }
+  const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);} }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>

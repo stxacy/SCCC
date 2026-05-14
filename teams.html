@@ -42,8 +42,13 @@
     ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: rgba(30,26,26,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-    @media (max-width: 1024px) { nav.nav-hidden { transform: translateY(-110%); } }
+    /* PAGE SPLASH */
+    #page-splash { position: fixed; inset: 0; z-index: 9999; background: #232323; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+    #page-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    #page-splash img { width: min(220px, 55vw); animation: pageSplashIn 0.4s ease forwards; }
+    @keyframes pageSplashIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: transparent; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 1s ease; }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo-badge { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; }
     .nav-logo-text { line-height: 1.2; }
@@ -173,6 +178,10 @@
 </head>
 <body>
 
+<div id="page-splash" aria-hidden="true">
+  <img src="/assets/images/sccc-logo.png" alt="" />
+</div>
+
 <!-- NAV -->
 <nav id="navbar">
   <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
@@ -183,7 +192,7 @@
   </a>
   <ul class="nav-links" role="list">
     <li><a href="/about">About</a></li>
-    <li><a href="/teams">Teams</a></li>
+    <li><a href="/teams" class="nav-active">Teams</a></li>
     <li><a href="/awards">Awards</a></li>
     <li><a href="/partners">Partners</a></li>
     <li><a href="/contact" class="nav-cta">Contact</a></li>
@@ -465,14 +474,9 @@
 </footer>
 
 <script>
+  (function() { const ps = document.getElementById('page-splash'); setTimeout(() => ps.classList.add('hidden'), 550); })();
   const navbar = document.getElementById('navbar');
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y > lastScrollY + 4) navbar.classList.add('nav-hidden');
-    else if (y < lastScrollY - 4) navbar.classList.remove('nav-hidden');
-    lastScrollY = y;
-  }, { passive: true });
+  window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
 
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
