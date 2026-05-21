@@ -405,6 +405,14 @@
     setTimeout(() => ps.classList.add('hidden'), 550);
   })();
 
+  // Hero parallax
+  const pageHeaderBg = document.querySelector('.page-header-bg');
+  if (pageHeaderBg) {
+    window.addEventListener('scroll', () => {
+      pageHeaderBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+    }, { passive: true });
+  }
+
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
 

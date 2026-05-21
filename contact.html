@@ -282,6 +282,15 @@
 
 <script>
   (function() { const ps = document.getElementById('page-splash'); setTimeout(() => ps.classList.add('hidden'), 550); })();
+
+  // Hero parallax
+  const pageHero = document.querySelector('.page-hero');
+  if (pageHero) {
+    window.addEventListener('scroll', () => {
+      pageHero.style.backgroundPosition = `center calc(40% + ${window.scrollY * 0.3}px)`;
+    }, { passive: true });
+  }
+
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
   const hamburger = document.getElementById('hamburger');

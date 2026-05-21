@@ -11,11 +11,11 @@
   <meta property="og:url" content="https://www.surfcoastcricketclub.com" />
   <meta property="og:title" content="Surf Coast Cricket Club | North Torquay" />
   <meta property="og:description" content="A community-minded cricket club based at Banyul-Warri Fields, North Torquay. Senior Men's and Junior cricket in the GCA. All welcome." />
-  <meta property="og:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
+  <meta property="og:image" content="https://www.surfcoastcricketclub.com/assets/images/sccc-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Surf Coast Cricket Club | North Torquay" />
   <meta name="twitter:description" content="A community-minded cricket club based at Banyul-Warri Fields, North Torquay. Senior Men's and Junior cricket in the GCA." />
-  <meta name="twitter:image" content="https://www.surfcoastcricketclub.com/assets/images/hero-bg.jpg" />
+  <meta name="twitter:image" content="https://www.surfcoastcricketclub.com/assets/images/sccc-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
@@ -1451,6 +1451,14 @@
 </footer>
 
 <script>
+  // Hero parallax
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+    }, { passive: true });
+  }
+
   // Navbar scroll effect — hide on scroll down, reveal on scroll up
   const navbar = document.getElementById('navbar');
   let lastScrollY = window.scrollY;
