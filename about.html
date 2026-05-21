@@ -80,14 +80,13 @@
     /* PAGE HERO */
     .page-hero {
       position: relative;
-      background:
-        linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%),
-        url('assets/images/hero-bg.jpg') center 40%/cover no-repeat;
+      background: linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%);
       min-height: 360px;
       display: flex; align-items: flex-end;
       padding: calc(72px + env(safe-area-inset-top) + 60px) 5% 72px;
       overflow: hidden;
     }
+    .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%), url('assets/images/hero-bg.jpg') center 50%/cover no-repeat; z-index: 0; }
     .page-hero-content { position: relative; z-index: 2; max-width: 700px; animation: fadeUp 0.8s ease both; }
     .page-hero-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
     .page-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); line-height: 1.1; color: #F5F0EE; }
@@ -206,6 +205,7 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero" role="banner">
+  <div class="page-hero-bg" aria-hidden="true"></div>
   <div class="page-hero-content">
     <span class="page-hero-label">Our Story</span>
     <h1 class="page-hero-title">More than a club &mdash;<br /><em>a community</em></h1>
@@ -340,10 +340,10 @@
   (function() { const ps = document.getElementById('page-splash'); setTimeout(() => ps.classList.add('hidden'), 550); })();
 
   // Hero parallax
-  const pageHero = document.querySelector('.page-hero');
-  if (pageHero) {
+  const pageHeroBg = document.querySelector('.page-hero-bg');
+  if (pageHeroBg) {
     window.addEventListener('scroll', () => {
-      pageHero.style.backgroundPosition = `center calc(40% + ${window.scrollY * 0.3}px)`;
+      pageHeroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
     }, { passive: true });
   }
 
