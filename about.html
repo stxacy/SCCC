@@ -78,17 +78,8 @@
     .nav-mobile a:hover { color: var(--white); }
 
     /* PAGE HERO */
-    .page-hero {
-      position: relative;
-      background: #1A1A1A;
-      display: flex; align-items: flex-end;
-      padding: 160px 5% 80px;
-      overflow: hidden;
-    }
-    .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%); z-index: 1; pointer-events: none; }
-    .page-hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
-    .page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 0%; display: block; }
-    .page-hero-content { position: relative; z-index: 2; max-width: 700px; animation: fadeUp 0.8s ease both; }
+    .page-hero { background: linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%), url('assets/images/hero-bg.jpg') center/cover no-repeat; display: flex; align-items: flex-end; padding: 160px 5% 80px; }
+    .page-hero-content { position: relative; max-width: 700px; animation: fadeUp 0.8s ease both; }
     .page-hero-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
     .page-hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 8vw, 100px); line-height: 0.9; letter-spacing: 3px; color: #F5F0EE; }
     .page-hero-title em { font-style: normal; color: var(--teal-lt); }
@@ -207,7 +198,6 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero" role="banner">
-  <div class="page-hero-bg" aria-hidden="true"><img src="assets/images/hero-bg.jpg" alt="" /></div>
   <div class="page-hero-content">
     <span class="page-hero-label">Our Story</span>
     <h1 class="page-hero-title">More than a club &mdash;<br /><em>a community</em></h1>
@@ -340,14 +330,6 @@
 
 <script>
   (function() { const ps = document.getElementById('page-splash'); setTimeout(() => ps.classList.add('hidden'), 550); })();
-
-  // Hero parallax
-  const pageHeroBg = document.querySelector('.page-hero-bg');
-  if (pageHeroBg) {
-    window.addEventListener('scroll', () => {
-      pageHeroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
-    }, { passive: true });
-  }
 
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
