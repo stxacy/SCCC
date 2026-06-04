@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://surfcoastcricketclub.com/sitemap.xml
+Sitemap: https://www.surfcoastcricketclub.com/sitemap.xml

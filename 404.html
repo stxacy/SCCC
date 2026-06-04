@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#232323" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <title>Page Not Found | Surf Coast Cricket Club</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #F5F5F5;
+      --navy-mid:#EBEBEB;
+      --teal:    #C9A020;
+      --teal-lt: #E8BF2A;
+      --green:   #E8001C;
+      --gold:    #FF2233;
+      --white:   #F5F0EE;
+      --muted:   #666666;
+      --card-bg: #FFFFFF;
+      --border:  rgba(0,0,0,0.09);
+      --radius:  14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #232323; color: #F5F0EE; overflow-x: hidden; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: rgba(30,26,26,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 1s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-badge { width: 60px; height: 60px; object-fit: contain; background: transparent; padding: 0; flex-shrink: 0; }
+    .nav-logo-text { line-height: 1.2; }
+    .nav-logo-text span:first-child { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--white); }
+    .nav-logo-text span:last-child { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-lt); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(245,240,238,0.75); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--teal-lt); transition: width 0.25s; }
+    .nav-links a:hover { color: #FFFFFF; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { padding: 9px 22px; background: var(--teal); color: var(--white) !important; border-radius: 8px; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .nav-mobile { display: none; flex-direction: column; position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 5%; gap: 20px; z-index: 999; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-mobile a:hover { color: var(--white); }
+
+    /* 404 HERO */
+    .error-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(72px + env(safe-area-inset-top) + 60px) 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(30,26,26,0.92) 0%, rgba(30,26,26,0.75) 50%, rgba(30,26,26,0.95) 100%),
+        url('/assets/images/hero-bg.jpg') center 60%/cover no-repeat;
+    }
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 {
+      width: min(500px, 70vw); height: min(500px, 70vw);
+      background: rgba(201,160,32,0.14);
+      top: -100px; right: -80px;
+      animation: orbFloat 14s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: min(350px, 55vw); height: min(350px, 55vw);
+      background: rgba(232,0,28,0.09);
+      bottom: -60px; left: -60px;
+      animation: orbFloat 18s ease-in-out infinite reverse;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50%       { transform: translate(30px,-40px) scale(1.05); }
+    }
+    .error-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 620px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .error-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 22vw, 220px);
+      line-height: 0.85;
+      letter-spacing: 4px;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(232,191,42,0.4);
+    }
+    .error-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--teal-lt); margin-bottom: 16px; margin-top: 8px;
+    }
+    .error-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2; color: #F5F0EE;
+    }
+    .error-title em { font-style: italic; color: var(--teal-lt); }
+    .error-desc {
+      margin-top: 20px;
+      font-size: clamp(15px, 1.7vw, 17px);
+      color: rgba(245,240,238,0.65);
+      line-height: 1.75;
+    }
+    .error-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-top: 40px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-lt));
+      color: var(--white); text-decoration: none;
+      border-radius: 10px; font-weight: 600; font-size: 15px;
+      box-shadow: 0 8px 32px rgba(201,160,32,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,160,32,0.55); }
+    .btn-ghost {
+      padding: 14px 32px; border: 1.5px solid rgba(255,255,255,0.2);
+      color: var(--white); text-decoration: none;
+      border-radius: 10px; font-weight: 500; font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--teal-lt); background: rgba(201,160,32,0.15); }
+
+    /* FOOTER */
+    footer { background: #1E1A1A; border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 5% calc(24px + env(safe-area-inset-bottom)); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: #AAAAAA; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .error-number { font-size: clamp(100px, 28vw, 160px); }
+    }
+    @media (orientation: landscape) and (max-width: 1024px) {
+      nav { padding-left: calc(5% + env(safe-area-inset-left)); padding-right: calc(5% + env(safe-area-inset-right)); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+    <img class="nav-logo-badge" src="/assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+    <div class="nav-logo-text">
+      <span>Surf Coast Cricket Club</span>
+    </div>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="/about">About</a></li>
+    <li><a href="/teams">Teams</a></li>
+    <li><a href="/awards">Awards</a></li>
+    <li><a href="/partners">Partners</a></li>
+    <li><a href="/contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="/about"    onclick="closeMenu()">About</a>
+  <a href="/teams"    onclick="closeMenu()">Teams</a>
+  <a href="/awards"   onclick="closeMenu()">Awards</a>
+  <a href="/partners" onclick="closeMenu()">Partners</a>
+  <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+</div>
+
+<!-- 404 CONTENT -->
+<div class="error-wrap" role="main">
+  <div class="error-bg" role="img" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <div class="error-content">
+    <div class="error-number" aria-hidden="true">404</div>
+    <span class="error-label">Page Not Found</span>
+    <h1 class="error-title">Lost on the <em>boundary?</em></h1>
+    <p class="error-desc">
+      The page you&rsquo;re looking for doesn&rsquo;t exist or may have moved. Head back to the home ground and try again.
+    </p>
+    <div class="error-actions">
+      <a href="/" class="btn-primary">Back to Home</a>
+      <a href="/contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. &mdash; <a href="/privacy" style="color:#AAAAAA;text-decoration:underline;">Privacy Policy</a></p>
+    <p class="footer-copy" style="color:var(--teal-lt);font-size:12px;">Banyul-Warri Fields, North Torquay VIC 3228</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  let menuOpen = false;
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    hamburger.setAttribute('aria-expanded', String(menuOpen));
+    const spans = hamburger.querySelectorAll('span');
+    if (menuOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity  = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  function closeMenu() {
+    menuOpen = false;
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+</script>
+</body>
+</html>

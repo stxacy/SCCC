@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#232323" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <title>Privacy Policy | Surf Coast Cricket Club</title>
+  <meta name="description" content="Privacy Policy for Surf Coast Cricket Club — how we collect, use, and protect your personal information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.surfcoastcricketclub.com/privacy" />
+  <meta property="og:title" content="Privacy Policy | Surf Coast Cricket Club" />
+  <meta property="og:image" content="https://www.surfcoastcricketclub.com/assets/images/sccc-logo.png" />
+  <link rel="canonical" href="https://www.surfcoastcricketclub.com/privacy" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #F5F5F5;
+      --navy-mid:#EBEBEB;
+      --teal:    #C9A020;
+      --teal-lt: #E8BF2A;
+      --green:   #E8001C;
+      --white:   #F5F0EE;
+      --muted:   #666666;
+      --card-bg: #FFFFFF;
+      --border:  rgba(0,0,0,0.09);
+      --radius:  14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: #1A1A1A; overflow-x: hidden; line-height: 1.6; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* PAGE SPLASH */
+    #page-splash { position: fixed; inset: 0; z-index: 9999; background: #232323; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+    #page-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    #page-splash img { width: min(220px, 55vw); animation: pageSplashIn 0.4s ease forwards; }
+    @keyframes pageSplashIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: env(safe-area-inset-top) 5% 0; height: calc(72px + env(safe-area-inset-top)); background: transparent; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 1s ease; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-badge { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; }
+    .nav-logo-text span:first-child { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--white); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(245,240,238,0.75); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--teal-lt); transition: width 0.25s; }
+    .nav-links a:hover { color: #FFFFFF; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { padding: 9px 22px; background: var(--teal); color: var(--white) !important; border-radius: 8px; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .nav-mobile { display: none; flex-direction: column; position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 5%; gap: 20px; z-index: 999; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-mobile a:hover { color: var(--white); }
+
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      background:
+        linear-gradient(160deg, rgba(30,26,26,0.88) 0%, rgba(30,26,26,0.60) 60%, rgba(30,26,26,0.92) 100%),
+        url('/assets/images/hero-bg.jpg') center 60%/cover no-repeat;
+      min-height: 300px;
+      display: flex; align-items: flex-end;
+      padding: calc(72px + env(safe-area-inset-top) + 60px) 5% 60px;
+    }
+    .page-hero-content { position: relative; z-index: 2; max-width: 700px; animation: fadeUp 0.8s ease both; }
+    .page-hero-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
+    .page-hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 88px); line-height: 0.9; letter-spacing: 3px; color: #F5F0EE; }
+    .page-hero-title em { font-style: normal; color: var(--teal-lt); }
+    @media (max-width: 768px) { .page-hero { min-height: 220px; padding-bottom: 40px; } }
+
+    /* CONTENT */
+    .privacy-wrap { max-width: 760px; margin: 0 auto; padding: 80px 5%; }
+    .privacy-wrap h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); color: #1A1A1A; margin-top: 48px; margin-bottom: 16px; }
+    .privacy-wrap h2:first-child { margin-top: 0; }
+    .privacy-wrap p { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 14px; }
+    .privacy-wrap ul { color: var(--muted); font-size: 15px; line-height: 1.8; padding-left: 20px; margin-bottom: 14px; }
+    .privacy-wrap ul li { margin-bottom: 6px; }
+    .privacy-wrap a { color: var(--teal); text-decoration: underline; }
+    .privacy-wrap a:hover { color: var(--teal-lt); }
+    .privacy-updated { display: inline-block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 32px; font-weight: 600; }
+    .privacy-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    /* FOOTER */
+    footer { background: #1E1A1A; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 5% calc(32px + env(safe-area-inset-bottom)); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .footer-brand-desc { color: #AAAAAA; font-size: 14px; line-height: 1.75; margin-top: 16px; max-width: 280px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 10px; background: var(--card-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: all 0.2s; }
+    .social-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { text-decoration: none; color: #AAAAAA; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal-lt); }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: #AAAAAA; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-hamburger { display: flex; } .footer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="page-splash" aria-hidden="true">
+  <img src="/assets/images/sccc-logo.png" alt="" />
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+    <img class="nav-logo-badge" src="/assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+    <div class="nav-logo-text">
+      <span>Surf Coast Cricket Club</span>
+    </div>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="/about">About</a></li>
+    <li><a href="/teams">Teams</a></li>
+    <li><a href="/awards">Awards</a></li>
+    <li><a href="/partners">Partners</a></li>
+    <li><a href="/contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <a href="/about"    onclick="closeMenu()">About</a>
+  <a href="/teams"    onclick="closeMenu()">Teams</a>
+  <a href="/awards"   onclick="closeMenu()">Awards</a>
+  <a href="/partners" onclick="closeMenu()">Partners</a>
+  <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero" role="banner">
+  <div class="page-hero-content">
+    <span class="page-hero-label">Legal</span>
+    <h1 class="page-hero-title">Privacy <em>Policy</em></h1>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<main class="privacy-wrap">
+  <span class="privacy-updated">Last updated: June 2026</span>
+
+  <h2>Who we are</h2>
+  <p>Surf Coast Cricket Club (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is a community cricket club based at Banyul-Warri Fields Sporting Precinct, Merrijig Drive, North Torquay VIC 3228. You can contact us at <a href="mailto:info@surfcoastcricketclub.com">info@surfcoastcricketclub.com</a>.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>What information we collect</h2>
+  <p>We only collect personal information you choose to provide to us, specifically:</p>
+  <ul>
+    <li><strong>Contact form submissions</strong> &mdash; your first name, last name, email address, and message. Subject line is optional.</li>
+  </ul>
+  <p>We do not run advertising, build user profiles, or collect information through tracking pixels or analytics tools on this website.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>How we use your information</h2>
+  <p>Information submitted through our contact form is used solely to respond to your enquiry. We will not share your details with third parties for marketing purposes, nor will we add you to any mailing list without your explicit consent.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>Third-party services</h2>
+  <p>This website uses the following third-party services, each with their own privacy practices:</p>
+  <ul>
+    <li><strong>Google Fonts</strong> &mdash; fonts are loaded from Google&rsquo;s servers. Google may log the request. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>FormSubmit.co</strong> &mdash; our contact form submissions are processed by FormSubmit. See <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener">FormSubmit&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Behold.so</strong> &mdash; our Instagram feed is served via Behold. Posts are fetched from Instagram / Meta. See <a href="https://behold.so/privacy" target="_blank" rel="noopener">Behold&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Microlink.io</strong> &mdash; used to fetch news article thumbnails from external URLs. See <a href="https://microlink.io/privacy" target="_blank" rel="noopener">Microlink&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Instagram / YouTube / Facebook embeds &amp; links</strong> &mdash; clicking through to these platforms is governed by their respective privacy policies.</li>
+  </ul>
+
+  <hr class="privacy-divider" />
+
+  <h2>Cookies and local storage</h2>
+  <p>This website uses <strong>browser localStorage</strong> to remember whether you have dismissed our cookie notice. This does not collect any personal data and is not shared with any third party.</p>
+  <p>Third-party services listed above may set their own cookies when you interact with embedded content or click external links. We do not control these cookies.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>Data retention</h2>
+  <p>Contact form enquiries are received directly into our club email inbox and retained only as long as necessary to respond. We do not maintain a separate database of enquiries.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>Your rights</h2>
+  <p>Under the Australian Privacy Act 1988, you have the right to request access to, or correction of, any personal information we hold about you. To make a request, email us at <a href="mailto:info@surfcoastcricketclub.com">info@surfcoastcricketclub.com</a>.</p>
+
+  <hr class="privacy-divider" />
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time. Changes will be reflected by the &ldquo;Last updated&rdquo; date at the top of this page.</p>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="/" class="nav-logo" aria-label="Surf Coast Cricket Club Home">
+        <img class="nav-logo-badge" src="/assets/images/sccc-logo.png" alt="Surf Coast Cricket Club logo" />
+        <div class="nav-logo-text" style="margin-left:12px;"><span>Surf Coast Cricket Club</span></div>
+      </a>
+      <p class="footer-brand-desc">A community-minded and inclusive cricket club based at Banyul-Warri Fields in North Torquay, competing in the GCA. We acknowledge the Wadawurrung People as the Traditional Custodians of this land.</p>
+      <div class="footer-socials" role="list" aria-label="Social media">
+        <a class="social-btn" href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="social-btn" href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" role="listitem" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a class="social-btn" href="https://www.youtube.com/@surfcoastcricketclub" target="_blank" rel="noopener" role="listitem" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="/about">About the Club</a></li>
+        <li><a href="/teams">Our Teams</a></li>
+        <li><a href="/partners">Partners</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Resources</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.playhq.com/cricket-australia/org/surf-coast-cricket-club/e23be353" target="_blank" rel="noopener">PlayHQ Registration</a></li>
+        <li><a href="https://www.facebook.com/surfcoastcricketclub/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228.</p>
+    <p class="footer-copy" style="color:var(--teal-lt);"><a href="https://stxacy.github.io" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,191,42,0.4);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal-lt)'" onmouseout="this.style.borderColor='rgba(232,191,42,0.4)'">Made by Vik Rathore on the Surf Coast</a></p>
+  </div>
+</footer>
+
+<script>
+  (function() { const ps = document.getElementById('page-splash'); setTimeout(() => ps.classList.add('hidden'), 550); })();
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(30,26,26,0.97)' : 'transparent'; }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  let menuOpen = false;
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    hamburger.setAttribute('aria-expanded', String(menuOpen));
+    const spans = hamburger.querySelectorAll('span');
+    if (menuOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity  = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  function closeMenu() {
+    menuOpen = false;
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+</script>
+</body>
+</html>

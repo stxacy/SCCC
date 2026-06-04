@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://surfcoastcricketclub.com/</loc>
+    <loc>https://www.surfcoastcricketclub.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://surfcoastcricketclub.com/about</loc>
+    <loc>https://www.surfcoastcricketclub.com/about</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://surfcoastcricketclub.com/teams</loc>
+    <loc>https://www.surfcoastcricketclub.com/teams</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://surfcoastcricketclub.com/awards</loc>
+    <loc>https://www.surfcoastcricketclub.com/awards</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://surfcoastcricketclub.com/partners</loc>
+    <loc>https://www.surfcoastcricketclub.com/partners</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://surfcoastcricketclub.com/contact</loc>
+    <loc>https://www.surfcoastcricketclub.com/contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.surfcoastcricketclub.com/privacy</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>

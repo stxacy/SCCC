@@ -16,6 +16,33 @@
   <meta name="twitter:title" content="Surf Coast Cricket Club | North Torquay" />
   <meta name="twitter:description" content="A community-minded cricket club based at Banyul-Warri Fields, North Torquay. Senior Men's and Junior cricket in the GCA." />
   <meta name="twitter:image" content="https://www.surfcoastcricketclub.com/assets/images/sccc-logo.png" />
+  <link rel="canonical" href="https://www.surfcoastcricketclub.com/" />
+  <link rel="preload" as="image" href="assets/images/hero-bg.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Surf Coast Cricket Club",
+    "url": "https://www.surfcoastcricketclub.com",
+    "logo": "https://www.surfcoastcricketclub.com/assets/images/sccc-logo.png",
+    "description": "A community-minded and inclusive cricket club based at Banyul-Warri Fields, North Torquay VIC, competing in the GCA.",
+    "sport": "Cricket",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Banyul-Warri Fields Sporting Precinct, Merrijig Drive",
+      "addressLocality": "North Torquay",
+      "addressRegion": "VIC",
+      "postalCode": "3228",
+      "addressCountry": "AU"
+    },
+    "email": "info@surfcoastcricketclub.com",
+    "sameAs": [
+      "https://www.facebook.com/surfcoastcricketclub/",
+      "https://www.instagram.com/surfcoastcricketclub/",
+      "https://www.youtube.com/@surfcoastcricketclub"
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
@@ -849,7 +876,7 @@
       Surf Coast Cricket Club is a newly established, community-minded and inclusive club in the growing area of North Torquay. Based at the Banyul-Warri Fields Sporting Precinct on Merrijig Drive, we compete in the GCA.
     </p>
     <p class="section-desc" style="margin-top:12px;">
-      Formed through the merger of the Surf Coast Stingrays and the Surf Coast Suns Football Netball Club, we field 4 senior men&rsquo;s sides, a senior women&rsquo;s team, and a growing junior program. We acknowledge the Wadawurrung People as the Traditional Custodians of the land on which we play.
+      Formed through the merger of the Surf Coast Stingrays and the Surf Coast Suns Football Netball Club, we field 4 senior men&rsquo;s sides and a growing junior program. We acknowledge the Wadawurrung People as the Traditional Custodians of the land on which we play.
     </p>
   </div>
 </section>
@@ -1367,19 +1394,26 @@
   <div class="contact-form reveal" style="transition-delay:0.15s">
     <h3 class="form-title">Send us a message</h3>
     <form onsubmit="handleSubmit(event)" novalidate>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_autoresponse" value="Thanks for getting in touch with Surf Coast Cricket Club! We've received your message and will get back to you soon. In the meantime, follow us on Instagram @surfcoastcricketclub or visit surfcoastcricketclub.com. Cheers, the Surf Coast CC team." />
+      <input type="hidden" id="form_replyto" name="_replyto" value="" />
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="fname">First Name <span aria-hidden="true">*</span></label>
           <input class="form-input" type="text" id="fname" name="fname" required autocomplete="given-name" placeholder="Jake" />
+          <span class="form-error" id="err-fname" style="display:none;color:var(--green);font-size:12px;margin-top:4px;">Please enter your first name.</span>
         </div>
         <div class="form-group">
           <label class="form-label" for="lname">Last Name <span aria-hidden="true">*</span></label>
           <input class="form-input" type="text" id="lname" name="lname" required autocomplete="family-name" placeholder="Morrison" />
+          <span class="form-error" id="err-lname" style="display:none;color:var(--green);font-size:12px;margin-top:4px;">Please enter your last name.</span>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
         <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="jake@example.com" />
+        <span class="form-error" id="err-email" style="display:none;color:var(--green);font-size:12px;margin-top:4px;">Please enter a valid email address.</span>
       </div>
       <div class="form-group">
         <label class="form-label" for="subject">Subject</label>
@@ -1388,6 +1422,7 @@
       <div class="form-group">
         <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
         <textarea class="form-textarea" id="message" name="message" required placeholder="Tell us a bit about yourself&hellip;"></textarea>
+        <span class="form-error" id="err-message" style="display:none;color:var(--green);font-size:12px;margin-top:4px;">Please enter a message.</span>
       </div>
       <button class="form-submit" type="submit">Send Message</button>
     </form>
@@ -1445,10 +1480,18 @@
   </div>
 
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228.</p>
+    <p class="footer-copy">&copy; 2026 Surf Coast Cricket Club. All rights reserved. Banyul-Warri Fields, North Torquay VIC 3228. &mdash; <a href="/privacy" style="color:#AAAAAA;text-decoration:underline;">Privacy Policy</a></p>
     <p class="footer-copy" style="color:var(--teal-lt);"><a href="https://stxacy.github.io" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,191,42,0.4);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal-lt)'" onmouseout="this.style.borderColor='rgba(232,191,42,0.4)'">Made by Vik Rathore on the Surf Coast</a></p>
   </div>
 </footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1E1A1A;border-top:1px solid rgba(255,255,255,0.1);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+  <p style="color:#AAAAAA;font-size:13px;line-height:1.6;margin:0;max-width:700px;">
+    This site uses third-party services (Google Fonts, Instagram feed, FormSubmit) that may store cookies or access your device. By continuing to use the site, you agree to our <a href="/privacy" style="color:var(--teal-lt);text-decoration:underline;">Privacy Policy</a>.
+  </p>
+  <button onclick="dismissCookieBanner()" style="flex-shrink:0;padding:10px 24px;background:var(--teal);border:none;border-radius:8px;color:#F5F0EE;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Got it</button>
+</div>
 
 <script>
   // Hero parallax
@@ -1518,9 +1561,33 @@
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const btn  = form.querySelector('.form-submit');
+
+    const fields = [
+      { id: 'fname',   errId: 'err-fname',   test: function(v){ return v.trim().length > 0; } },
+      { id: 'lname',   errId: 'err-lname',   test: function(v){ return v.trim().length > 0; } },
+      { id: 'email',   errId: 'err-email',   test: function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
+      { id: 'message', errId: 'err-message', test: function(v){ return v.trim().length > 0; } },
+    ];
+    var valid = true;
+    fields.forEach(function(f) {
+      var input = form.querySelector('#' + f.id);
+      var err   = form.querySelector('#' + f.errId);
+      if (!f.test(input.value)) {
+        input.style.borderColor = 'var(--green)';
+        err.style.display = 'block';
+        valid = false;
+      } else {
+        input.style.borderColor = '';
+        err.style.display = 'none';
+      }
+    });
+    if (!valid) return;
+
+    const btn = form.querySelector('.form-submit');
     btn.textContent = 'Sending\u2026';
     btn.disabled = true;
+
+    form.querySelector('#form_replyto').value = form.querySelector('#email').value.trim();
 
     const data = new FormData(form);
     fetch('https://formsubmit.co/ajax/info@surfcoastcricketclub.com', {
@@ -1594,6 +1661,17 @@
     splash.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') dismiss(); });
     document.body.style.overflow = 'hidden';
   })();
+
+  // Cookie consent
+  (function() {
+    if (!localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  })();
+  function dismissCookieBanner() {
+    localStorage.setItem('cookieConsent', '1');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
 </script>
 </body>
 </html>
