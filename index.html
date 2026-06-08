@@ -163,6 +163,9 @@
     }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+    .nav-kit-btn { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex !important; align-items: center; justify-content: center; color: rgba(245,240,238,0.75) !important; transition: all 0.2s !important; }
+    .nav-kit-btn::after { display: none !important; }
+    .nav-kit-btn:hover { background: var(--teal) !important; color: #fff !important; border-color: var(--teal) !important; transform: translateY(-1px); }
 
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px;
@@ -778,6 +781,7 @@
     <li><a href="/awards">Awards</a></li>
     <li><a href="/partners">Partners</a></li>
     <li><a href="/contact" class="nav-cta">Contact</a></li>
+    <li><a href="https://indigowolf.com.au/SurfCoastCricketClub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnMnVl2sjTOSUUHBX1zoArYmKPpdm_KwFEbp048M6Hb-Z7gkKt_KvycDMikJ4_aem_PSaEgPo4BT4xALJvUA0qng" class="nav-kit-btn" target="_blank" rel="noopener" aria-label="Kit Shop" title="Kit Shop"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -790,6 +794,7 @@
   <a href="/awards"   onclick="closeMenu()">Awards</a>
   <a href="/partners" onclick="closeMenu()">Partners</a>
   <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+  <a href="https://indigowolf.com.au/SurfCoastCricketClub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnMnVl2sjTOSUUHBX1zoArYmKPpdm_KwFEbp048M6Hb-Z7gkKt_KvycDMikJ4_aem_PSaEgPo4BT4xALJvUA0qng" onclick="closeMenu()" target="_blank" rel="noopener" style="color:var(--teal-lt);font-weight:600;">Kit Shop &rarr;</a>
 </div>
 
 <!-- HERO -->
@@ -905,7 +910,7 @@
         <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="Eliza Gold" />
       </a>
       <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" aria-label="Taylor Legal">
-        <img src="/assets/images/partners/taylor-legal.webp" alt="Taylor Legal" />
+        <img src="/assets/images/partners/taylor-legal.png" alt="Taylor Legal" />
       </a>
       <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" aria-label="M Group Mulcahy & Co">
         <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="M Group" />
@@ -928,8 +933,11 @@
       <a class="reel-card" href="https://www.facebook.com/p/Miss-Mias-61580853634412/" target="_blank" rel="noopener" aria-label="Miss Mia's">
         <span class="reel-name">Miss Mia&rsquo;s</span>
       </a>
+      <a class="reel-card" href="https://www.instagram.com/anytimefitnesstorquay/?hl=en" target="_blank" rel="noopener" aria-label="Anytime Fitness Torquay">
+        <img src="/assets/images/partners/anytime-fitness.jpg" alt="Anytime Fitness Torquay" />
+      </a>
       <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" aria-label="Surf Coast Times">
-        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" />
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="Surf Coast Times" style="width:90%;height:90%;" />
       </a>
       <a class="reel-card" href="https://www.instagram.com/blitz.nutrition_/" target="_blank" rel="noopener" aria-label="Blitz Nutrition">
         <img src="/assets/images/partners/blitz-nutrition.png" alt="Blitz Nutrition" />
@@ -938,7 +946,10 @@
         <span class="reel-name">DBM Signs</span>
       </a>
       <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" aria-label="Subway Waurn Ponds">
-        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" />
+        <img src="/assets/images/partners/subway.png" alt="Subway Waurn Ponds" style="transform:scale(1.32);" />
+      </a>
+      <a class="reel-card" href="https://www.facebook.com/p/Surf-Coast-Quality-Meats-100057478478445/" target="_blank" rel="noopener" aria-label="Surf Coast Quality Meats">
+        <img src="/assets/images/partners/surfcoast-quality-meats.png" alt="Surf Coast Quality Meats" style="transform:scale(1.32);" />
       </a>
       <a class="reel-card" href="https://www.instagram.com/generalpublicaustralia/" target="_blank" rel="noopener" aria-label="General Public">
         <img src="/assets/images/partners/general-public.png" alt="General Public" />
@@ -957,7 +968,7 @@
         <img src="https://www.elizagoldproperty.com.au/wp-content/uploads/2024/11/Horizontal-Logo-e1732714245371.png" alt="" />
       </a>
       <a class="reel-card" href="https://www.taylorlegal.com.au/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/taylor-legal.webp" alt="" />
+        <img src="/assets/images/partners/taylor-legal.png" alt="" />
       </a>
       <a class="reel-card" href="https://www.mulcahy.com.au/" target="_blank" rel="noopener" tabindex="-1">
         <img src="https://lirp.cdn-website.com/42e1f668/dms3rep/multi/opt/mgroup-social-1920w.png" alt="" />
@@ -980,8 +991,11 @@
       <a class="reel-card" href="https://www.facebook.com/p/Miss-Mias-61580853634412/" target="_blank" rel="noopener" tabindex="-1">
         <span class="reel-name">Miss Mia&rsquo;s</span>
       </a>
+      <a class="reel-card" href="https://www.instagram.com/anytimefitnesstorquay/?hl=en" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/anytime-fitness.jpg" alt="" />
+      </a>
       <a class="reel-card" href="https://timesnewsgroup.com.au/surfcoasttimes/" target="_blank" rel="noopener" tabindex="-1">
-        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" />
+        <img src="https://static.timesnewsgroup.com.au/prod/uploads/sites/2/2019/08/cropped-favicon-270x270.png" alt="" style="width:90%;height:90%;" />
       </a>
       <a class="reel-card" href="https://www.instagram.com/blitz.nutrition_/" target="_blank" rel="noopener" tabindex="-1">
         <img src="/assets/images/partners/blitz-nutrition.png" alt="" />
@@ -990,7 +1004,10 @@
         <span class="reel-name">DBM Signs</span>
       </a>
       <a class="reel-card" href="https://www.subway.com/en-AU" target="_blank" rel="noopener" tabindex="-1">
-        <img src="/assets/images/partners/subway.png" alt="" />
+        <img src="/assets/images/partners/subway.png" alt="" style="transform:scale(1.32);" />
+      </a>
+      <a class="reel-card" href="https://www.facebook.com/p/Surf-Coast-Quality-Meats-100057478478445/" target="_blank" rel="noopener" tabindex="-1">
+        <img src="/assets/images/partners/surfcoast-quality-meats.png" alt="" style="transform:scale(1.32);" />
       </a>
       <a class="reel-card" href="https://www.instagram.com/generalpublicaustralia/" target="_blank" rel="noopener" tabindex="-1">
         <img src="/assets/images/partners/general-public.png" alt="" />

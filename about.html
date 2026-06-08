@@ -71,6 +71,9 @@
     .nav-cta { padding: 9px 22px; background: var(--teal); color: var(--white) !important; border-radius: 8px; transition: background 0.2s, transform 0.15s !important; }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+    .nav-kit-btn { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex !important; align-items: center; justify-content: center; color: rgba(245,240,238,0.75) !important; transition: all 0.2s !important; }
+    .nav-kit-btn::after { display: none !important; }
+    .nav-kit-btn:hover { background: var(--teal) !important; color: #fff !important; border-color: var(--teal) !important; transform: translateY(-1px); }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: none; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
     .nav-mobile { display: none; flex-direction: column; position: fixed; top: calc(72px + env(safe-area-inset-top)); left: 0; right: 0; background: #2D2D2D; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px calc(5% + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(5% + env(safe-area-inset-left)); gap: 20px; z-index: 999; }
@@ -191,6 +194,7 @@
     <li><a href="/awards">Awards</a></li>
     <li><a href="/partners">Partners</a></li>
     <li><a href="/contact" class="nav-cta">Contact</a></li>
+    <li><a href="https://indigowolf.com.au/SurfCoastCricketClub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnMnVl2sjTOSUUHBX1zoArYmKPpdm_KwFEbp048M6Hb-Z7gkKt_KvycDMikJ4_aem_PSaEgPo4BT4xALJvUA0qng" class="nav-kit-btn" target="_blank" rel="noopener" aria-label="Kit Shop" title="Kit Shop"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -203,6 +207,7 @@
   <a href="/awards"   onclick="closeMenu()">Awards</a>
   <a href="/partners" onclick="closeMenu()">Partners</a>
   <a href="/contact"  onclick="closeMenu()" style="color:var(--teal-lt);font-weight:600;">Contact &rarr;</a>
+  <a href="https://indigowolf.com.au/SurfCoastCricketClub?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnMnVl2sjTOSUUHBX1zoArYmKPpdm_KwFEbp048M6Hb-Z7gkKt_KvycDMikJ4_aem_PSaEgPo4BT4xALJvUA0qng" onclick="closeMenu()" target="_blank" rel="noopener" style="color:var(--teal-lt);font-weight:600;">Kit Shop &rarr;</a>
 </div>
 
 <!-- PAGE HERO -->
