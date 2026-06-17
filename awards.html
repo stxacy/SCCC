@@ -118,8 +118,10 @@
     /* CLUB AWARDS */
     #awards { padding-bottom: 0; }
     #club-awards { padding-top: 48px; padding-bottom: 0; }
-    .club-awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
-    .club-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .club-awards-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: 52px; }
+    .club-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); grid-column: span 2; }
+    .club-card:nth-child(4) { grid-column: 2 / 4; }
+    .club-card:nth-child(5) { grid-column: 4 / 6; }
     .club-card-header { background: #1E1A1A; padding: 20px 24px; display: flex; align-items: center; gap: 12px; }
     .club-card-header-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(201,160,32,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .club-card-header-icon svg { width: 18px; height: 18px; color: var(--teal-lt); }
@@ -127,7 +129,8 @@
     .club-card-body { padding: 0; }
     .award-row { display: flex; align-items: stretch; gap: 0; border-bottom: 1px solid var(--border); }
     .award-row:last-child { border-bottom: none; }
-    .award-season { padding: 14px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); background: rgba(201,160,32,0.06); min-width: 72px; border-right: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; }
+    .award-season { padding: 0 14px; min-width: 80px; border-right: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: none; }
+    .award-season span { display: inline-block; background: rgba(201,160,32,0.13); color: var(--teal); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 9px; border-radius: 20px; border: 1px solid rgba(201,160,32,0.28); white-space: nowrap; }
     .award-winner { padding: 14px 18px; font-size: 14px; color: #1A1A1A; line-height: 1.5; flex: 1; }
     .award-winner strong { font-weight: 600; display: block; }
     .award-winner span { font-size: 12px; color: var(--muted); }
@@ -156,6 +159,14 @@
     .awards-table .na { color: #CCCCCC; font-style: italic; font-size: 13px; }
     .awards-table .season-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-right: 8px; vertical-align: middle; }
 
+    /* NOTABLE PERFORMANCES */
+    .notable-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+    .notable-sub-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .notable-sub-icon { width: 28px; height: 28px; border-radius: 6px; background: rgba(201,160,32,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .notable-sub-icon svg { width: 14px; height: 14px; color: var(--teal); }
+    .notable-sub-label { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 1px; color: #1A1A1A; }
+    @media (max-width: 768px) { .notable-grid { grid-template-columns: 1fr; } }
+
     /* FOOTER */
     footer { background: #1E1A1A; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 5% calc(32px + env(safe-area-inset-bottom)); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -171,7 +182,9 @@
     .footer-copy { font-size: 13px; color: #AAAAAA; }
 
     @media (max-width: 1024px) {
-      .club-awards-grid { grid-template-columns: 1fr 1fr; }
+      .club-awards-grid { grid-template-columns: repeat(4, 1fr); }
+      .club-card { grid-column: span 2; }
+      .club-card:nth-child(4), .club-card:nth-child(5) { grid-column: span 2; }
       .key-grid { grid-template-columns: repeat(4, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -182,6 +195,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .club-awards-grid { grid-template-columns: 1fr; }
+      .club-card, .club-card:nth-child(4), .club-card:nth-child(5) { grid-column: span 1; }
       .key-grid { grid-template-columns: repeat(2, 1fr); }
       .grade-badge { font-size: 48px; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -248,15 +262,15 @@
   <div class="reveal">
     <span class="section-label">2025&ndash;26 Season</span>
     <h2 class="section-title" id="awards-title">Season <em>Honours</em></h2>
-    <p class="section-desc">Presented at the Annual Club Presentation Night. Recipients to be announced at the conclusion of the season.</p>
+    <p class="section-desc">Awarded at the Annual Club Presentation Night, held on Saturday 14 June 2026.</p>
   </div>
 
   <div class="awards-banner reveal" style="transition-delay:0.1s">
     <div class="awards-banner-text">
-      <h3>Presentation Night</h3>
-      <p>Awards are presented at the Annual Season Presentation Night on <strong>Saturday 14th June</strong>. Stay connected via our Instagram and Facebook pages for venue details and updates.</p>
+      <h3>2025&ndash;26 Presentation Night</h3>
+      <p>Awards were presented at the Annual Season Presentation Night on <strong>Saturday 14 June 2026</strong>. See the full roll of honour below.</p>
     </div>
-    <a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" class="btn-primary">Follow for Updates</a>
+    <a href="https://www.instagram.com/surfcoastcricketclub/" target="_blank" rel="noopener" class="btn-primary">Follow on Instagram</a>
   </div>
 </section>
 
@@ -278,22 +292,18 @@
       </div>
       <div class="club-card-body">
         <div class="award-row">
-          <div class="award-season">23/24</div>
+          <div class="award-season"><span>23/24</span></div>
           <div class="award-winner">
             <strong>Richard Dawes</strong>
             <span>350 runs @ 26.92 &amp; 3 wickets @ 26.67</span>
           </div>
         </div>
         <div class="award-row">
-          <div class="award-season">24/25</div>
+          <div class="award-season"><span>24/25</span></div>
           <div class="award-winner">
             <strong>William Liddle</strong>
             <span>473 runs @ 47.3 &amp; 25 wickets @ 15.88</span>
           </div>
-        </div>
-        <div class="award-row">
-          <div class="award-season">25/26</div>
-          <div class="award-winner"></div>
         </div>
       </div>
     </div>
@@ -307,21 +317,23 @@
       </div>
       <div class="club-card-body">
         <div class="award-row">
-          <div class="award-season">23/24</div>
+          <div class="award-season"><span>23/24</span></div>
           <div class="award-winner">
             <strong>Tim Eden &amp; Lachlan Edwards</strong>
             <span>Joint recipients</span>
           </div>
         </div>
         <div class="award-row">
-          <div class="award-season">24/25</div>
+          <div class="award-season"><span>24/25</span></div>
           <div class="award-winner">
             <strong>Lachlan Edwards</strong>
           </div>
         </div>
         <div class="award-row">
-          <div class="award-season">25/26</div>
-          <div class="award-winner"></div>
+          <div class="award-season"><span>25/26</span></div>
+          <div class="award-winner">
+            <strong>Lachlan Edwards</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -335,20 +347,51 @@
       </div>
       <div class="club-card-body">
         <div class="award-row">
-          <div class="award-season">23/24</div>
+          <div class="award-season"><span>23/24</span></div>
           <div class="award-winner">
             <strong>Michael Duff</strong>
           </div>
         </div>
         <div class="award-row">
-          <div class="award-season">24/25</div>
+          <div class="award-season"><span>24/25</span></div>
           <div class="award-winner">
             <strong>Rhys Healy</strong>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="club-card reveal" style="transition-delay:0.2s">
+      <div class="club-card-header">
+        <div class="club-card-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="club-card-title">Best &amp; Fairest</div>
+      </div>
+      <div class="club-card-body">
         <div class="award-row">
-          <div class="award-season">25/26</div>
-          <div class="award-winner"></div>
+          <div class="award-season"><span>25/26</span></div>
+          <div class="award-winner">
+            <strong>Akashvir Singh</strong>
+            <span>A Grade &mdash; 16 Votes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="club-card reveal" style="transition-delay:0.25s">
+      <div class="club-card-header">
+        <div class="club-card-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="club-card-title">Coaches Award</div>
+      </div>
+      <div class="club-card-body">
+        <div class="award-row">
+          <div class="award-season"><span>25/26</span></div>
+          <div class="award-winner">
+            <strong>Allen Antony</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -380,37 +423,37 @@
           <td>Batting Average</td>
           <td><span class="winner-name">Richard Dawes</span><span class="winner-stat">350 @ 26.92</span></td>
           <td><span class="winner-name">William Liddle</span><span class="winner-stat">473 @ 47.3</span></td>
-          <td></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">321 @ 29.18</span></td>
         </tr>
         <tr>
           <td>Batting Aggregate</td>
           <td><span class="winner-name">Richard Dawes</span><span class="winner-stat">350 @ 26.92</span></td>
           <td><span class="winner-name">William Liddle</span><span class="winner-stat">473 @ 47.3</span></td>
-          <td></td>
+          <td><span class="winner-name">William Liddle</span><span class="winner-stat">321 Runs</span></td>
         </tr>
         <tr>
           <td>Bowling Average</td>
           <td><span class="winner-name">Corey Roberts</span><span class="winner-stat">16 wkts @ 19.06</span></td>
           <td><span class="winner-name">William Liddle</span><span class="winner-stat">25 wkts @ 15.88</span></td>
-          <td></td>
+          <td><span class="winner-name">Blake Robinson</span><span class="winner-stat">24 wkts @ 14.29</span></td>
         </tr>
         <tr>
           <td>Bowling Aggregate</td>
           <td><span class="winner-name">Corey Roberts &amp; Brodie Larkings</span><span class="winner-stat">16 wkts @ 19.06 &amp; 16 wkts @ 22.12</span></td>
           <td><span class="winner-name">William Liddle</span><span class="winner-stat">25 wkts @ 15.88</span></td>
-          <td></td>
+          <td><span class="winner-name">Akashvir Singh</span><span class="winner-stat">27 Wickets</span></td>
         </tr>
         <tr>
           <td>All-Rounder</td>
           <td><span class="winner-name">Daniel Zoch</span><span class="winner-stat">207 runs @ 23 &amp; 9 wkts @ 30.67</span></td>
           <td><span class="na">Not awarded</span></td>
-          <td></td>
+          <td><span class="na">&mdash;</span></td>
         </tr>
         <tr>
           <td>Fielding</td>
           <td><span class="na">&mdash;</span></td>
           <td><span class="winner-name">Ben Tekin</span></td>
-          <td></td>
+          <td><span class="winner-name">Vik Rathore &amp; William Liddle</span></td>
         </tr>
       </tbody>
     </table>
@@ -439,27 +482,27 @@
         <tr>
           <td>Batting Average</td>
           <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">682 @ 62</span></td>
-          <td></td>
+          <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">576 @ 48.00</span></td>
         </tr>
         <tr>
           <td>Batting Aggregate</td>
           <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">682 @ 62</span></td>
-          <td></td>
+          <td><span class="winner-name">Sukhbir Chahal</span><span class="winner-stat">576 Runs</span></td>
         </tr>
         <tr>
           <td>Bowling Average</td>
           <td><span class="winner-name">Mandeep Singh</span><span class="winner-stat">16 wkts @ 8.69</span></td>
-          <td></td>
+          <td><span class="winner-name">Mathews Mathew</span><span class="winner-stat">32 wkts @ 14.69</span></td>
         </tr>
         <tr>
           <td>Bowling Aggregate</td>
           <td><span class="winner-name">Mathews Pularkalayil Mathew</span><span class="winner-stat">17 wkts @ 15.65</span></td>
-          <td></td>
+          <td><span class="winner-name">Mathews Mathew</span><span class="winner-stat">32 Wickets</span></td>
         </tr>
         <tr>
           <td>Fielding</td>
           <td><span class="winner-name">Sukhbir Chahal</span></td>
-          <td></td>
+          <td><span class="winner-name">Sukhbir Chahal</span></td>
         </tr>
       </tbody>
     </table>
@@ -490,34 +533,163 @@
           <td>Batting Average</td>
           <td><span class="winner-name">Michael Duff</span><span class="winner-stat">337 @ 25.92</span></td>
           <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">261 @ 18.64</span></td>
-          <td></td>
+          <td><span class="winner-name">Sharon Augustine</span><span class="winner-stat">295 @ 42.14</span></td>
         </tr>
         <tr>
           <td>Batting Aggregate</td>
           <td><span class="winner-name">Michael Duff</span><span class="winner-stat">337 @ 25.92</span></td>
           <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">261 @ 18.64</span></td>
-          <td></td>
+          <td><span class="winner-name">Sharon Augustine</span><span class="winner-stat">295 Runs</span></td>
         </tr>
         <tr>
           <td>Bowling Average</td>
           <td><span class="winner-name">Jayson Green</span><span class="winner-stat">14 wkts @ 19.21</span></td>
           <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">10 wkts @ 22.90</span></td>
-          <td></td>
+          <td><span class="winner-name">Shane Gambin</span><span class="winner-stat">12 wkts @ 23.67</span></td>
         </tr>
         <tr>
           <td>Bowling Aggregate</td>
           <td><span class="winner-name">Jayson Green</span><span class="winner-stat">14 wkts @ 19.21</span></td>
           <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">10 wkts @ 22.90</span></td>
-          <td></td>
+          <td><span class="winner-name">Jason Hutchieson</span><span class="winner-stat">14 Wickets</span></td>
         </tr>
         <tr>
           <td>Fielding</td>
           <td><span class="na">&mdash;</span></td>
           <td><span class="winner-name">Shane Gambin</span></td>
-          <td></td>
+          <td><span class="na">TBC</span></td>
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- NOTABLE PERFORMANCES -->
+<div class="grade-section" id="notable" aria-labelledby="notable-title">
+  <div class="grade-header reveal">
+    <div class="grade-badge" aria-hidden="true">25/26</div>
+    <div class="grade-header-text">
+      <span class="section-label">Season Highlights</span>
+      <h2 class="section-title" id="notable-title">Notable <em>Performances</em></h2>
+    </div>
+  </div>
+  <div class="notable-grid reveal" style="transition-delay:0.1s">
+    <div>
+      <div class="notable-sub-heading">
+        <div class="notable-sub-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <span class="notable-sub-label">Centuries</span>
+      </div>
+      <div class="awards-table-wrap">
+        <table class="awards-table" aria-label="Season Centuries">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Score</th>
+              <th>Opposition</th>
+              <th>Grade &amp; Round</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="winner-name">William Liddle</span></td>
+              <td>106*</td>
+              <td>Winchelsea</td>
+              <td><span class="winner-stat">A2 &mdash; Rd 2</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Sukhbir Chahal</span></td>
+              <td>103</td>
+              <td>Winchelsea</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 2</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Sukhbir Chahal</span></td>
+              <td>118</td>
+              <td>Wallington</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 3</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Sharon Augustine</span></td>
+              <td>100</td>
+              <td>Armstrong Creek</td>
+              <td><span class="winner-stat">D Grade &mdash; Rd 7</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Sukhbir Chahal</span></td>
+              <td>110*</td>
+              <td>Newcomb</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 10</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="notable-sub-heading">
+        <div class="notable-sub-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <span class="notable-sub-label">Bowling Performances</span>
+      </div>
+      <div class="awards-table-wrap">
+        <table class="awards-table" aria-label="Season Bowling Performances">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Figures</th>
+              <th>Opposition</th>
+              <th>Grade &amp; Round</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="winner-name">Lachlan Edwards</span></td>
+              <td>5/13</td>
+              <td>Anglesea</td>
+              <td><span class="winner-stat">D Grade &mdash; Rd 2</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Lachlan Campbell</span></td>
+              <td>5/45</td>
+              <td>Winchelsea</td>
+              <td><span class="winner-stat">A2 &mdash; Rd 2</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Mathews Mathew</span></td>
+              <td>5/60</td>
+              <td>St Leonards</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 6</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Satvir Deol</span></td>
+              <td>6/33</td>
+              <td>Queenscliff</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 7</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Mathews Mathew</span></td>
+              <td>6/44</td>
+              <td>Inverleigh</td>
+              <td><span class="winner-stat">B2 &mdash; Rd 13</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Akashvir Singh</span></td>
+              <td>5/35</td>
+              <td>Newcomb</td>
+              <td><span class="winner-stat">A2 &mdash; Rd 14</span></td>
+            </tr>
+            <tr>
+              <td><span class="winner-name">Blake Robinson</span></td>
+              <td>5/42</td>
+              <td>Newcomb</td>
+              <td><span class="winner-stat">A2 &mdash; Rd 14</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
